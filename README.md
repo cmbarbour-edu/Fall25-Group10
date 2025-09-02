@@ -5,13 +5,13 @@ Caleb Barbour
 Brycen Parsons
 
 ## Title
-DnD Party/Campaign Finder
+Nat20 Network
 
 ## Team Members
 Brycen Parsons
 
 ## Description
-The app we are creating is an app that allows DnD/TTRPG lovers to find campaigns to join in a much easier fashion than other DnD style apps. This app will allow players and DMs to create and manage their profiles, and allow players to join campaigns at the DMs' approval.
+A Dungeons and Dragons campaign finder and manager. Dungeon Masters can create custom campaigns for players to join. DMs can also add homebrew content and view useful information about the game. Players can search for public campaigns to join, as well as manage character sheets and view useful information. System Administrators will be able to view user reports, manage reviews of users and DMs, view and delete custom homebrew content, and see usage statistics. The motivation for creating this app is because of the lack of accessible ways to find DnD campaigns online. Without knowing someone who is in a group, it is often difficult to get into DnD. This app helps reduce the barrier of entry, allowing people to easily find open campaigns that they might wish to join.
 
 ## App Functions
 1. Players (Brycen's role)
