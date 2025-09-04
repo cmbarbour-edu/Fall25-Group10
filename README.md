@@ -22,16 +22,8 @@
     3. View customer statistics -  Allow the DM to view important player statistics such as how many times a player has been kicked from a campaign or how many player character deaths have occurred. All player statistics will be relevant to determining if a provider wishes to accept a player into their campaign.
     4. Reply to reviews - Allow the provider to respond to ratings that the player provides regarding their campaign conduct. This will act as a way to get both sides of a story if there are any issues with conduct of players and DMs.  
 3. SysAdmin (the user with the admin role if applicable):
-<<<<<<< HEAD
     1. Manage user access - The SysAdmin can demote or promote users between roles such as promoting a user from player to DM or demoting a DM to a player.The SysAdmin would also be able to deactivate accounts, reset passwords, and handle account recovery requests.
     2. Moderate services - The SysAdmin can review and remove inappropriate campaigns that may not be wanted or abandoned campaigns that haven't been used in a while. The SysAdmin could also ensure that the content on the platform remain safe, relevant, and active.
     3. Moderate reviews - The SysAdmin can investigate reported reviews, remove offensive or fradulent content, and mediate disputes between players and Dms to maintain a fair community reputation system.
     4. View usage statistics - The SysAdmin can access platform analytics like total active users, number of campaigns created, average campaign size, and other metrics to monitor system health and plan updates to improve user experience.
-=======
-    1. Manage user access - .
-    2. Moderate services - .
-    3. Moderate reviews - .
-    4. View usage statistics - .
 
-Nehemiah McClain
->>>>>>> 7ec8e82072b2d54473ffb66f6434426c3347dd98
