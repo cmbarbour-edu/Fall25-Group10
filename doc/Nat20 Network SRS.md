@@ -109,6 +109,8 @@ User interface must support multiple user roles with appropriate permissions, th
 * FR7: The system shall allow SysAdmins to reset passwords and assist with account recovery.
 * FR8: The system shall allow SysAdmins to review and remove inappropriate or inactive campaigns.
 * FR9: The system shall allow SysAdmins to moderate reported reviews and remove offensive or fraudulent content.
+* FR10: The system shall allow players to create characters for campaigns that they join.
+* FR11: The system shall allow players to give feedback and give reviews for campaigns that they join.
 
 
 #### 3.1.1 User interfaces
