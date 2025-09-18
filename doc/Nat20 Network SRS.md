@@ -40,7 +40,7 @@ Table of Contents
 | Caleb    | 9/17    | Initial SRS document      | 1.0       |
 | Nehemiah | 9/17    | System Admin Requirements | 1.1       |
 | Caleb    | 9/18    | DM Requirements           | 1.2       |
-|          |         |                           |           |
+| Brycen   | 9/18    | Player Requirements       | 1.3       |
 
 ## 1. Introduction
 
