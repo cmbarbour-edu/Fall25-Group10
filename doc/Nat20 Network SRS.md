@@ -40,7 +40,7 @@ Table of Contents
 | Caleb    | 9/17    | Initial SRS document      | 1.0       |
 | Nehemiah | 9/17    | System Admin Requirements | 1.1       |
 | Caleb    | 9/18    | DM Requirements           | 1.2       |
-|          |         |                           |           |
+| Brycen   | 9/18    | Player Requirements       | 1.3       |
 
 ## 1. Introduction
 
@@ -109,6 +109,8 @@ User interface must support multiple user roles with appropriate permissions, th
 * FR7: The system shall allow SysAdmins to reset passwords and assist with account recovery.
 * FR8: The system shall allow SysAdmins to review and remove inappropriate or inactive campaigns.
 * FR9: The system shall allow SysAdmins to moderate reported reviews and remove offensive or fraudulent content.
+* FR10: The system shall allow players to create characters for campaigns that they join.
+* FR11: The system shall allow players to give feedback and give reviews for campaigns that they join.
 
 
 #### 3.1.1 User interfaces
