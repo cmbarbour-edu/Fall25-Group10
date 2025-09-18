@@ -44,7 +44,7 @@ Table of Contents
 ## 1. Introduction
 
 ### 1.1 Document Purpose
-Describe the purpose of the SRS and its intended audience.
+The purpose of this Software Requirements Specification (SRS) is to define the requirements for the Nat20 Network, a Dungeons & Dragons (D&D) campaign finder and manager. This document is intended for developers, testers, stakeholders, and system administrators involved in building and maintaining the application. It provides clarity on the system’s goals, features, and constraints to ensure alignment between all parties.
 
 ### 1.2 Product Scope
 Identify the product whose software requirements are specified in this document, including the revision or release number. Explain what the product that is covered by this SRS will do, particularly if this SRS describes only part of the system or a single subsystem. 
@@ -56,7 +56,7 @@ Provide a short description of the software being specified and its purpose, inc
 List any other documents or Web addresses to which this SRS refers. These may include user interface style guides, contracts, standards, system requirements specifications, use case documents, or a vision and scope document. Provide enough information so that the reader could access a copy of each reference, including title, author, version number, date, and source or location.
 
 ### 1.5 Document Overview
-Describe what the rest of the document contains and how it is organized.
+This document outlines the Nat20 Network project requirements. Section 2 provides a high-level product overview, including major functions, constraints, user types, and dependencies and section 3 specifies detailed functional and non-functional requirements, including interfaces, performance, security, and compliance considerations.
 
 ## 2. Product Overview
 This section should describe the general factors that affect the product and its requirements. This section does not state specific requirements. Instead, it provides a background for those requirements, which are defined in detail in Section 3, and makes them easier to understand.
@@ -65,12 +65,7 @@ This section should describe the general factors that affect the product and its
 Summarize the major functions the product must perform or must let the user perform. Details will be provided in Section 3, so only a high level summary (such as a bullet list) is needed here. Organize the functions to make them understandable to any reader of the SRS. A picture of the major groups of related requirements and how they relate, such as a top level data flow diagram or object class diagram, is often effective.
 
 ### 2.2 Product Constraints
-This subsection should provide a general description of any other items that will limit the developer’s options. These may include:  
-
-* Interfaces to users, other applications or hardware.  
-* Quality of service constraints.  
-* Standards compliance.  
-* Constraints around design or implementation.
+User interface must support multiple user roles with appropriate permissions, the platform must provide reliable uptime for campaign discovery. Standards must comply with community safety standards (moderation of inappropriate content), and scalable campaign hosting and account management must be supported.
   
 ### 2.3 User Characteristics
 Identify the various user classes that you anticipate will use this product. User classes may be differentiated based on frequency of use, subset of product functions used, technical expertise, security or privilege levels, educational level, or experience. Describe the pertinent characteristics of each user class. Certain requirements may pertain only to certain user classes. Distinguish the most important user classes for this product from those who are less important to satisfy.
@@ -81,20 +76,14 @@ List any assumed factors (as opposed to known facts) that could affect the requi
 ## 3. Requirements
 
 ### 3.1 Functional Requirements 
-This section specifies the software product's requirements. Specify all of the software requirements to a level of detail sufficient to enable designers to design a software system to satisfy those requirements, and to enable testers to test that the software system satisfies those requirements.
-
-The specific requirements should:
-* Be uniquely identifiable.
-* State the subject of the requirement (e.g., system, software, etc.) and what shall be done.
-* Optionally state the conditions and constraints, if any.
-* Describe every input (stimulus) into the software system, every output (response) from the software system, and all functions performed by the software system in response to an input or in support of an output.
-* Be verifiable (e.g., the requirement realization can be proven to the customer's satisfaction)
-* Conform to agreed upon syntax, keywords, and terms.
+FR-SA1: The system shall allow SysAdmins to promote or demote users between roles (Player ↔ DM).
+FR-SA2: The system shall allow SysAdmins to deactivate or delete user accounts.
+FR-SA3: The system shall allow SysAdmins to reset passwords and assist with account recovery.
+FR-SA4: The system shall allow SysAdmins to review and remove inappropriate or inactive campaigns.
+FR-SA5: The system shall allow SysAdmins to moderate reported reviews and remove offensive or fraudulent content.
 
 #### 3.1.1 User interfaces
-Define the software components for which a user interface is needed. Describe the logical characteristics of each interface between the software product and the users. This may include sample screen images, any GUI standards or product family style guides that are to be followed, screen layout constraints, standard buttons and functions (e.g., help) that will appear on every screen, keyboard shortcuts, error message display standards, and so on. Details of the user interface design should be documented in a separate user interface specification.
-
-Could be further divided into Usability and Convenience requirements.
+Web pages using HTML, CSS, JavaScript, and an API.
 
 #### 3.1.2 Hardware interfaces
 Describe the logical and physical characteristics of each interface between the software product and the hardware components of the system. This may include the supported device types, the nature of the data and control interactions between the software and the hardware, and communication protocols to be used.
@@ -105,7 +94,7 @@ Describe the connections between this product and other specific software compon
 ### 3.2 Non Functional Requirements 
 
 #### 3.2.1 Performance
-If there are performance requirements for the product under various circumstances, state them here and explain their rationale, to help the developers understand the intent and make suitable design choices. Specify the timing relationships for real time systems. Make such requirements as specific as possible. You may need to state performance requirements for individual functional requirements or features.
+NFR1: The Nat20 Network system shall consume less than 300 MB of memory. 
 
 #### 3.2.2 Security
 Specify any requirements regarding security or privacy issues surrounding use of the product or protection of the data used or created by the product. Define any user identity authentication requirements. Refer to any external policies or regulations containing security issues that affect the product. Define any security or privacy certifications that must be satisfied.
@@ -114,13 +103,13 @@ Specify any requirements regarding security or privacy issues surrounding use of
 Specify the factors required to establish the required reliability of the software system at time of delivery.
 
 #### 3.2.4 Availability
-Specify the factors required to guarantee a defined availability level for the entire system such as checkpoint, recovery, and restart.
+NFR7: The system is going to be available at all times of the day. Maintenance shall be scheduled for low user hours such as 3 A.M EST to reduce the impact that it will have on user experience. 
 
 #### 3.2.5 Compliance
 Specify the requirements derived from existing standards or regulations
 
 #### 3.2.6 Cost
-Specify monetary cost of the software product.
+NFR8: The expected monetary cost of the project is $0
 
 #### 3.2.7 Deadline
 Specify schedule for delivery of the software product.
