@@ -35,11 +35,12 @@ Table of Contents
     * 3.2.7 [Deadline](#327-deadline)
 
 ## Revision History
-| Name | Date    | Reason For Changes  | Version   |
-| ---- | ------- | ------------------- | --------- |
-|      |         |                     |           |
-|      |         |                     |           |
-|      |         |                     |           |
+| Name     | Date    | Reason For Changes        | Version   |
+| -------- | ------- | ------------------------- | --------- |
+| Caleb    | 9/17    | Initial SRS document      | 1.0       |
+| Nehemiah | 9/17    | System Admin Requirements | 1.1       |
+| Caleb    | 9/18    | DM Requirements           | 1.2       |
+|          |         |                           |           |
 
 ## 1. Introduction
 
@@ -47,19 +48,35 @@ Table of Contents
 Describe the purpose of the SRS and its intended audience.
 
 ### 1.2 Product Scope
-Identify the product whose software requirements are specified in this document, including the revision or release number. Explain what the product that is covered by this SRS will do, particularly if this SRS describes only part of the system or a single subsystem. 
-Provide a short description of the software being specified and its purpose, including relevant benefits, objectives, and goals. Relate the software to corporate goals or business strategies. If a separate vision and scope document is available, refer to it rather than duplicating its contents here.
+The purpose of Nat20 Network is to connect D&D players with dungeon masters and other players to enjoy campaigns. It is intended to provide a clear and easy to use format for dungeon masters to create and share campaigns that they have created with players who might be interested in joining said campaigns. The system is a web-based application aimed at simplifying the process of creating a campaign and finding players who wish to join the group online.
 
-### 1.3 Definitions, Acronyms and Abbreviations                                                                                                                                                                          |
+### 1.3 Definitions, Acronyms and Abbreviations
+| Reference  | Definition                                                                                                                                                                         |
+|------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Java       | A programming language originally developed by James Gosling at Sun Microsystems. We will be using this language to build the backend service for LocalHarvest Hub                 |
+| Postgresql | Open-source relational database management system.                                                                                       |
+| SpringBoot | An open-source Java-based framework used to create a micro Service. This will be used to create and run our application.                                                           |
+| Spring MVC | Model-View-Controller. This is the architectural pattern that will be used to implement our system.                                                                         |
+| Spring Web | Will be used to build our web application by using Spring MVC. This is one of the dependencies of our system.                                                                      |
+| API        | Application Programming Interface. This will be used to interface the backend and the fronted of our application.                                                                  |
+| HTML       | Hypertext Markup Language. This is the code that will be used to structure and design the web application and its content.                                                         |
+| CSS        | Cascading Style Sheets. Will be used to add styles and appearance to the web app.                                                                                         |
+| JavaScript | An object-oriented computer programming language commonly used to create interactive effects within web browsers. Will be used in conjuction with HTML and CSS to make the web app. |
+| RESTful API | REpresentational State Transfer API. This will be the architecture that the external API our system uses has implemented.                                                           |
+| VS Code    | An integrated development environment (IDE) for Java. This is where our system will be created.                                                                                    |
+| D&D/DND/DnD | Dungeons and Dragons, a tabletop role-playing game developed by Wizards of the Coast.                                                                                         |
+| DM          | The dungeon master, also called the game master. This is the person responsible for running the D&D campaign for their group of players.                                            |
+|        |                                                                                       |
 
 ### 1.4 References
-List any other documents or Web addresses to which this SRS refers. These may include user interface style guides, contracts, standards, system requirements specifications, use case documents, or a vision and scope document. Provide enough information so that the reader could access a copy of each reference, including title, author, version number, date, and source or location.
+* [Spring Boot Guides](https://spring.io/guides)
+* [BootStrap HTML Toolkit](https://getbootstrap.com/docs/5.3/getting-started/introduction/)
 
 ### 1.5 Document Overview
 Describe what the rest of the document contains and how it is organized.
 
 ## 2. Product Overview
-This section should describe the general factors that affect the product and its requirements. This section does not state specific requirements. Instead, it provides a background for those requirements, which are defined in detail in Section 3, and makes them easier to understand.
+Nat20 Network is a web-based application designed to help D&D players, both new and old, find online campaigns that are open for joining. Players can browse available campaigns, request to join them, create characters, and leave reviews on players and DMs that they have had in the past. DMs can manage their campaigns and players in their group, along with viewing monster status blocks and their player's characters. This system supports multiple user roles including players, DMs, and administrators, each with their own unique experience designed for their specific use-case.
 
 ### 2.1 Product Functions
 Summarize the major functions the product must perform or must let the user perform. Details will be provided in Section 3, so only a high level summary (such as a bullet list) is needed here. Organize the functions to make them understandable to any reader of the SRS. A picture of the major groups of related requirements and how they relate, such as a top level data flow diagram or object class diagram, is often effective.
@@ -81,15 +98,12 @@ List any assumed factors (as opposed to known facts) that could affect the requi
 ## 3. Requirements
 
 ### 3.1 Functional Requirements 
-This section specifies the software product's requirements. Specify all of the software requirements to a level of detail sufficient to enable designers to design a software system to satisfy those requirements, and to enable testers to test that the software system satisfies those requirements.
-
-The specific requirements should:
-* Be uniquely identifiable.
-* State the subject of the requirement (e.g., system, software, etc.) and what shall be done.
-* Optionally state the conditions and constraints, if any.
-* Describe every input (stimulus) into the software system, every output (response) from the software system, and all functions performed by the software system in response to an input or in support of an output.
-* Be verifiable (e.g., the requirement realization can be proven to the customer's satisfaction)
-* Conform to agreed upon syntax, keywords, and terms.
+* FR0: The system shall allow users to create an account as either a player or a DM.
+* FR1: The system shall allow users to modify their profiles on their own at any time.
+* FR2: The system shall allow DMs to create campaigns that are open to the public or available by invite only.
+  * Each campaign will have additional information such as what edition is being used and a short description of its contents.
+* FR3: The system shall allow DMs to view user-specific data associated with their previous play experiences.
+* FR4: The system shall allow DMs to respond to reviews from their previous players regarding the behaviour and performance of the DM.
 
 #### 3.1.1 User interfaces
 Define the software components for which a user interface is needed. Describe the logical characteristics of each interface between the software product and the users. This may include sample screen images, any GUI standards or product family style guides that are to be followed, screen layout constraints, standard buttons and functions (e.g., help) that will appear on every screen, keyboard shortcuts, error message display standards, and so on. Details of the user interface design should be documented in a separate user interface specification.
@@ -100,12 +114,18 @@ Could be further divided into Usability and Convenience requirements.
 Describe the logical and physical characteristics of each interface between the software product and the hardware components of the system. This may include the supported device types, the nature of the data and control interactions between the software and the hardware, and communication protocols to be used.
 
 #### 3.1.3 Software interfaces
-Describe the connections between this product and other specific software components (name and version), including databases, operating systems, tools, libraries, and integrated commercial components. Identify the data items or messages coming into the system and going out and describe the purpose of each. Describe the services needed and the nature of communications. Refer to documents that describe detailed application programming interface protocols. Identify data that will be shared across software components. If the data sharing mechanism must be implemented in a specific way (for example, use of a global data area in a multitasking operating system), specify this as an implementation constraint.
+* Java JDK 21
+* PostgreSQL 17
+* Spring Boot 3.5.5
+* RESTful API
+* D&D 5e SRD API
+* GraphQL September 2025 release
 
 ### 3.2 Non Functional Requirements 
 
 #### 3.2.1 Performance
-If there are performance requirements for the product under various circumstances, state them here and explain their rationale, to help the developers understand the intent and make suitable design choices. Specify the timing relationships for real time systems. Make such requirements as specific as possible. You may need to state performance requirements for individual functional requirements or features.
+* NFR4: A novice DM should be able to create a new campaign in under 15 minutes. 
+* NFR5: An advanced DM shall be able to create a new campaign in under 10 minutes. 
 
 #### 3.2.2 Security
 Specify any requirements regarding security or privacy issues surrounding use of the product or protection of the data used or created by the product. Define any user identity authentication requirements. Refer to any external policies or regulations containing security issues that affect the product. Define any security or privacy certifications that must be satisfied.
@@ -123,4 +143,4 @@ Specify the requirements derived from existing standards or regulations
 Specify monetary cost of the software product.
 
 #### 3.2.7 Deadline
-Specify schedule for delivery of the software product.
+* NFR9: The final product must be deployed by December 2025.
