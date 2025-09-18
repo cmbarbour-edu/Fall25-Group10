@@ -76,17 +76,18 @@ This subsection should provide a general description of any other items that wil
 * Constraints around design or implementation.
   
 ### 2.3 User Characteristics
-There will be a main user, which is split into two categories: Player and DM. Users can be both, but they will be logged in as a player unless they create their own campaign and start inviting players to join via a "Campaigns" tab.
-
-Admins are separate from the Users, meaning a user cannot be an admin.
+* There will be a main user, which is split into two categories: Player and DM. 
+* Users can be both, but they will be logged in as a player unless they create their own campaign and start inviting players to join via a "Campaigns" tab.
+* Admins are separate from the Users, meaning a user cannot be an admin.
 
 ### 2.4 Assumptions and Dependencies
-There is the assumption that the APIs we plan to use may cost this project to take up more space than anticipated, as well as the program being dependent on one of the APIs we plan to use, which is the DnD Player's Handbook API. 
+* There is the assumption that the APIs we plan to use may cost this project to take up more space than anticipated, as well as the program being dependent on one of the APIs we plan to use, which is the DnD Player's Handbook API. 
 
 ## 3. Requirements
 
 ### 3.1 Functional Requirements 
-The "Player" must be able to create an account first before being counted as a player. They also must be able to create a character, whenever it be by themselves or upon entering a campaign via invite, and must be able to do so in a timely manner. They also can view Dungeon Master profiles, as well as give reviews for the campaigns that they join.
+* The "Player" must be able to create an account first before being counted as a player. They also must be able to create a character, whenever it be by themselves or upon entering a campaign via invite, and must be able to do so in a timely manner. 
+* The Player also can view Dungeon Master profiles, as well as give reviews for the campaigns that they join.
 
 #### 3.1.1 User interfaces
 Define the software components for which a user interface is needed. Describe the logical characteristics of each interface between the software product and the users. This may include sample screen images, any GUI standards or product family style guides that are to be followed, screen layout constraints, standard buttons and functions (e.g., help) that will appear on every screen, keyboard shortcuts, error message display standards, and so on. Details of the user interface design should be documented in a separate user interface specification.
@@ -94,7 +95,7 @@ Define the software components for which a user interface is needed. Describe th
 Could be further divided into Usability and Convenience requirements.
 
 #### 3.1.2 Hardware interfaces
-We plan on having the website be as straight-forward as possible, as we want to have as smooth of a process as possible with character creation and campaign creation. As for the devices that this program will be supported on, we've decided to go with computers only. We do not plan on making a mobile version of this program.
+* We plan on having the website be as straight-forward as possible, as we want to have as smooth of a process as possible with character creation and campaign creation. As for the devices that this program will be supported on, we've decided to go with computers only. We do not plan on making a mobile version of this program.
 
 #### 3.1.3 Software interfaces
 Describe the connections between this product and other specific software components (name and version), including databases, operating systems, tools, libraries, and integrated commercial components. Identify the data items or messages coming into the system and going out and describe the purpose of each. Describe the services needed and the nature of communications. Refer to documents that describe detailed application programming interface protocols. Identify data that will be shared across software components. If the data sharing mechanism must be implemented in a specific way (for example, use of a global data area in a multitasking operating system), specify this as an implementation constraint.
@@ -102,11 +103,11 @@ Describe the connections between this product and other specific software compon
 ### 3.2 Non Functional Requirements 
 
 #### 3.2.1 Performance
-Requirement 2: A novice player shall be able to create a character in under 30 minutes.
-Requirement 3: An advanced player shall be able to create a character in under 15 minutes.
+* Requirement 2: A novice player shall be able to create a character in under 30 minutes.
+* Requirement 3: An advanced player shall be able to create a character in under 15 minutes.
 
 #### 3.2.2 Security
-The system is going to be available only to those who have created and activated an account.
+* The system is going to be available only to those who have created and activated an account.
 
 #### 3.2.3 Reliability
 Specify the factors required to establish the required reliability of the software system at time of delivery.
