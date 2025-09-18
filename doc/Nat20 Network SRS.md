@@ -79,16 +79,21 @@ This document outlines the Nat20 Network project requirements. Section 2 provide
 Nat20 Network is a web-based application designed to help D&D players, both new and old, find online campaigns that are open for joining. Players can browse available campaigns, request to join them, create characters, and leave reviews on players and DMs that they have had in the past. DMs can manage their campaigns and players in their group, along with viewing monster status blocks and their player's characters. This system supports multiple user roles including players, DMs, and administrators, each with their own unique experience designed for their specific use-case.
 
 ### 2.1 Product Functions
-Summarize the major functions the product must perform or must let the user perform. Details will be provided in Section 3, so only a high level summary (such as a bullet list) is needed here. Organize the functions to make them understandable to any reader of the SRS. A picture of the major groups of related requirements and how they relate, such as a top level data flow diagram or object class diagram, is often effective.
+Users will be able to create accounts and create characters for DnD campaigns.
+Users will be able to create campaigns for others to join via a request to join system.
+Users will be able to view DM profiles, and vice versa.
+Admins will be able to view user reports and feedback.
 
 ### 2.2 Product Constraints
 User interface must support multiple user roles with appropriate permissions, the platform must provide reliable uptime for campaign discovery. Standards must comply with community safety standards (moderation of inappropriate content), and scalable campaign hosting and account management must be supported.
   
 ### 2.3 User Characteristics
-Identify the various user classes that you anticipate will use this product. User classes may be differentiated based on frequency of use, subset of product functions used, technical expertise, security or privilege levels, educational level, or experience. Describe the pertinent characteristics of each user class. Certain requirements may pertain only to certain user classes. Distinguish the most important user classes for this product from those who are less important to satisfy.
+* There will be a main user, which is split into two categories: Player and DM. 
+* Users can be both, but they will be logged in as a player unless they create their own campaign and start inviting players to join via a "Campaigns" tab.
+* Admins are separate from the Users, meaning a user cannot be an admin.
 
 ### 2.4 Assumptions and Dependencies
-List any assumed factors (as opposed to known facts) that could affect the requirements stated in the SRS. These could include third-party or commercial components that you plan to use, issues around the development or operating environment, or constraints. The project could be affected if these assumptions are incorrect, are not shared, or change. Also identify any dependencies the project has on external factors, such as software components that you intend to reuse from another project, unless they are already documented elsewhere (for example, in the vision and scope document or the project plan).
+* There is the assumption that the APIs we plan to use may cost this project to take up more space than anticipated, as well as the program being dependent on one of the APIs we plan to use, which is the DnD Player's Handbook API. 
 
 ## 3. Requirements
 
@@ -105,11 +110,12 @@ List any assumed factors (as opposed to known facts) that could affect the requi
 * FR8: The system shall allow SysAdmins to review and remove inappropriate or inactive campaigns.
 * FR9: The system shall allow SysAdmins to moderate reported reviews and remove offensive or fraudulent content.
 
+
 #### 3.1.1 User interfaces
 Web pages using HTML, CSS, JavaScript, and an API.
 
 #### 3.1.2 Hardware interfaces
-Describe the logical and physical characteristics of each interface between the software product and the hardware components of the system. This may include the supported device types, the nature of the data and control interactions between the software and the hardware, and communication protocols to be used.
+* We plan on having the website be as straight-forward as possible, as we want to have as smooth of a process as possible with character creation and campaign creation. As for the devices that this program will be supported on, we've decided to go with computers only. We do not plan on making a mobile version of this program.
 
 #### 3.1.3 Software interfaces
 * Java JDK 21
@@ -123,11 +129,13 @@ Describe the logical and physical characteristics of each interface between the 
 
 #### 3.2.1 Performance
 * NFR1: The Nat20 Network system shall consume less than 300 MB of memory.
+* NFR2: A novice player shall be able to create a character in under 30 minutes.
+* NFR3: An advanced player shall be able to create a character in under 15 minutes.
 * NFR4: A novice DM should be able to create a new campaign in under 15 minutes. 
 * NFR5: An advanced DM shall be able to create a new campaign in under 10 minutes. 
 
 #### 3.2.2 Security
-Specify any requirements regarding security or privacy issues surrounding use of the product or protection of the data used or created by the product. Define any user identity authentication requirements. Refer to any external policies or regulations containing security issues that affect the product. Define any security or privacy certifications that must be satisfied.
+* The system is going to be available only to those who have created and activated an account.
 
 #### 3.2.3 Reliability
 Specify the factors required to establish the required reliability of the software system at time of delivery.
