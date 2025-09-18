@@ -1,10 +1,10 @@
 # Software Requirements Specification
-## For <project name>
+## For Nat20 Network
 
 Version 0.1  
-Prepared by <author>  
-<organization>  
-<date created> 
+Prepared by Caleb barbour, Brycen Parsons, and Nehemiah McClain  
+CSC340-02  
+9/17/2025 
 
 Table of Contents
 =================
@@ -138,13 +138,11 @@ Web pages using HTML, CSS, JavaScript, and an API.
 * The system is going to be available only to those who have created and activated an account.
 
 #### 3.2.3 Reliability
-Specify the factors required to establish the required reliability of the software system at time of delivery.
 
 #### 3.2.4 Availability
 NFR7: The system is going to be available at all times of the day. Maintenance shall be scheduled for low user hours such as 3 A.M EST to reduce the impact that it will have on user experience. 
 
 #### 3.2.5 Compliance
-Specify the requirements derived from existing standards or regulations
 
 #### 3.2.6 Cost
 NFR8: The expected monetary cost of the project is $0
