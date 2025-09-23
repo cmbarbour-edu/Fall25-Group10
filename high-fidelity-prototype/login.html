@@ -29,7 +29,7 @@
                         <a class="nav-link" href="about.html">About Us</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Sign up</a>
+                        <a class="nav-link" href="signup.html">Sign up</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link active" aria-current="page" href="login.html">Login</a>
@@ -42,17 +42,19 @@
      <form>
         <div class="mb-3">
             <label for="exampleInputEmail1" class="form-label">Email address</label>
-            <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+            <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Nat20Network@gmail.com" aria-describedby="emailHelp">
             <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
         </div>
         <div class="mb-3">
             <label for="exampleInputPassword1" class="form-label">Password</label>
             <input type="password" class="form-control" id="exampleInputPassword1">
         </div>
-
-        <button type="submit" class="btn btn-primary" href="">Sign in as player</button>
-        <button type="submit" class="btn btn-primary" href="/high-fidelity-prototype/provider-prototype/dmhome.html">Sign in as DM</button>
-        <button type="submit" class="btn btn-primary" href="">Sign in as system admin</button>
+        <div class="d-grid gap-2 col-4 justify-content-center mx-auto">
+            <button type="button" class="btn btn-primary" href="">Sign in as player</button>
+            <a href="/high-fidelity-prototype/provider-prototype/dmhome.html" class="btn btn-primary" role="button">Sign in as DM</a>
+            <button type="submit" class="btn btn-primary" href="">Sign in as system admin</button>
+        </div>
+        
     </form>
 </body>
 </html>
