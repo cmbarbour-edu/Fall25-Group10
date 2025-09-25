@@ -49,5 +49,22 @@
             </ul>
         </div>
     </nav>
+    <!-- Create a campaign -->
+    <div class="mb-3 px-1">
+        <label for="Campaign name" class="form-label px-1">Title</label>
+        <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="i.e. Secrets of the Never-ending Gardens">
+    </div>
+    <div class="mb-3 px-1">
+        <label for="Campaign edition" class="form-label px-1">Edition</label>
+        <select class="form-select" aria-label="Default campaign edition">
+            <option selected>Please select edition</option>
+            <option value="1">D&D 5e</option>
+        </select>
+    </div>
+    <div class="mb-3 px-1">
+        <label for="Campaign description" class="form-label px-1">Content Description</label>
+        <textarea class="form-control" id="contentDescription" rows="5" placeholder="Please describe the content of your campaign. This is what players will look at to determine if they want to join your party, so make it interesting!"></textarea>
+    </div>
+    <a class="btn btn-primary mx-2" type="submit">Submit</a>
 </body>
 </html>
