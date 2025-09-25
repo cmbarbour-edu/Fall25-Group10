@@ -38,5 +38,55 @@
             </ul>
         </div>
     </nav>
+
+    <!-- Sign up form -->
+    <main class="container mt-5">
+        <div class="row justify-content-center">
+            <div class="col-md-6 col-lg-4">
+                <div class="card shadow-sm">
+                    <div class="card-body">
+                        <h5 class="card-title mb-4 text-center">Create an Account</h5>
+                        <form id="signupForm" action="#" method="post" novalidate>
+                            <div class="mb-3">
+                                <label for="username" class="form-label">Username</label>
+                                <input id="username" name="username" type="text" class="form-control" placeholder="Enter username" required>
+                                <div class="invalid-feedback">Please enter a username.</div>
+                            </div>
+
+                            <div class="mb-3">
+                                <label for="password" class="form-label">Password</label>
+                                <input id="password" name="password" type="password" class="form-control" placeholder="Enter password" required>
+                                <div class="invalid-feedback">Please enter a password.</div>
+                            </div>
+
+                            <div class="d-grid">
+                                <button type="submit" class="btn btn-primary">Sign Up</button>
+                            </div>
+                        </form>
+                        <small class="text-muted d-block text-center mt-3">Already have an account? <a href="login.html">Log in</a></small>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script>
+        // Basic client-side validation and demo submit handler
+        (function () {
+            const form = document.getElementById('signupForm');
+            form.addEventListener('submit', function (e) {
+                e.preventDefault();
+                if (!form.checkValidity()) {
+                    form.classList.add('was-validated');
+                    return;
+                }
+                // Replace with real submit logic (fetch/POST) as needed
+                const username = document.getElementById('username').value.trim();
+                alert('Sign up submitted for: ' + username);
+                // Optionally clear form:
+                // form.reset();
+            });
+        })();
+    </script>
 </body>
 </html>
