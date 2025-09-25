@@ -62,8 +62,20 @@
         </select>
     </div>
     <div class="mb-3 px-1">
-        <label for="Campaign description" class="form-label px-1">Content Description</label>
-        <textarea class="form-control" id="contentDescription" rows="5" placeholder="Please describe the content of your campaign. This is what players will look at to determine if they want to join your party, so make it interesting!"></textarea>
+        <label for="Short campaign description" class="form-label px-1">Short Campaign Description</label>
+        <textarea class="form-control" id="contentDescription" rows="5" placeholder="Please describe the content of your campaign in a few short sentences. This is what players will look at to determine if they want to join your party, so make it interesting!"></textarea>
+    </div>
+    <div class="mb-3 px-1">
+        <label for="Extended campaign description" class="form-label px-1">Extended Campaign Description</label>
+        <textarea class="form-control" id="contentDescription" rows="5" placeholder="Please describe your campaign in more detail, explaining the content and other important aspects of the campaign such as if it is roleplay or combat focused."></textarea>
+    </div>
+    <div class="mb-3 px-1">
+        <label for="Campaign access" class="form-label px-1">Privacy</label>
+        <select class="form-select" aria-label="Default privacy">
+            <option selected>Please select privacy options</option>
+            <option value="1">Public</option>
+            <option value="2">Private</option>
+        </select>
     </div>
     <a class="btn btn-primary mx-2" type="submit">Submit</a>
 </body>

@@ -16,6 +16,9 @@
                 justify-content: end;
             }
         }
+        .card {
+            border: none;
+        }
     </style>
 </head>
 <body>
@@ -50,5 +53,24 @@
         </div>
     </nav>
     <!-- List player name, then use cards to create a "chat" where title is user and body is feedback; under card, use card-link to reply to the message, which pops up a form box-->
+    <p class="fw-bold fs-1">Player Feedback</p>
+    <div class="container">
+        <div class="row">
+            <div class="col">
+                <div class="card">
+                    <h5 class="card-title mx-1">Player: <a href="playerstats.html">@purplelinebear</a></h5>
+                    <h6 class="card-subtitle mx-1 mb-2 ">Campaign: <a href="capaignexample.html">Delve into the Black Abyss</a></h6>
+                    <p class="card-text mx-1 mb-1 text-body-secondary">@hollow.wood.13 did an amazing job DMing the campaign! I really enjoyed all of the roleplay aspects from him and the rest of the party, since I am not a huge fan of long combat encounters. The party was selected well, even though a player had to be kicked due to inappropriate actions in-game. In the 3 months that this campaign lasted, I found myself looking forward to playing with my party (and now freinds!) every other Friday. Thank you, Matthew, for being an amazing DM and making my first online campaign an enjoyable experience! </p>
+                    <button class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#replyBox" aria-expanded="false" aria-controls="replyBox">Reply</button>
+                    <div class="collapse mt-3" id="replyBox">
+                        <div class="card card-body">
+                        <textarea class="form-control mb-2" rows="3" placeholder="Write your reply..."></textarea>
+                        <button class="btn btn-primary">Send</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 </body>
 </html>
