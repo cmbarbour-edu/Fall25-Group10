@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    <style>
+        body {
+            overflow-x: hidden;
+        }
+        .navbar {
+            .dropdown-menu {
+                position:absolute;
+                justify-content: end;
+            }
+        }
+        .card {
+            border: none;
+            .card-body {
+                .botton {
+                    word-wrap: break-word;
+                }
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar bg-dark boarder-bottom border-3 border-secondary" data-bs-theme="dark">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="/high-fidelity-prototype/provider-prototype/dmhome.html">
+                <img src="/high-fidelity-prototype/images/d20OutlineWhite.PNG" alt="Nat20 Network" width="30" height="auto" class="d-inline-block align-text-top">
+            Nat20 Network
+            </a>
+            <ul class="navbar-nav justify-content-center">
+                <ul class="nav justify-content-left">
+                    <li class="nav-item align-middle">
+                        <a class="nav-link" href="/high-fidelity-prototype/tools.html">Tools</a>
+                    </li>
+                    <li class="nav-item align-middle">
+                        <a class="nav-link" href="campaignrequests.html">View Requests</a>
+                    </li>
+                    <li class="nav-item dropdown-center">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            Profile
+                        </a>
+                        <ul class="dropdown-menu dropdown-menu-end dropdown-menu-dark">
+                            <li><a class="dropdown-item" href="manageprofile.html">Manage profile</a></li>
+                            <li><a class="dropdown-item" href="dmhome.html">Home</a></li>
+                            <li><a class="dropdown-item" href="playerfeedback.html">See reviews</a></li>
+                            <li><a class="dropdown-item" href="/high-fidelity-prototype/home.html">Log Out</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </ul>
+        </div>
+    </nav>
+
+      <div class="container">
+    <header class="d-flex align-items-center mb-4">
+      <img src="/high-fidelity-prototype/images/d20OutlineWhite.PNG" alt="logo" width="36" class="me-2">
+      <h4 class="mb-0">Nat20 Network — Admin Statistics (Demo)</h4>
+      <small class="text-muted ms-3">demo data only</small>
+    </header>
+
+    <div class="row g-3 mb-3">
+      <div class="col-md-4">
+        <div class="card card-compact shadow-sm">
+          <div class="d-flex justify-content-between align-items-center">
+            <div>
+              <div class="stat-number" id="totalUsers">—</div>
+              <div class="stat-label">Total Active Users</div>
+            </div>
+            <div class="text-end">
+              <div class="text-muted small">Last 30d</div>
+              <div class="text-success small" id="usersChange">+0%</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-4">
+        <div class="card card-compact shadow-sm">
+          <div class="d-flex justify-content-between align-items-center">
+            <div>
+              <div class="stat-number" id="totalCampaigns">—</div>
+              <div class="stat-label">Campaigns Created</div>
+            </div>
+            <div class="text-end">
+              <div class="text-muted small">All time (demo)</div>
+              <div class="text-primary small" id="campaignsChange">—</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-4">
+        <div class="card card-compact shadow-sm">
+          <div>
+            <div class="d-flex justify-content-between align-items-end mb-2">
+              <div>
+                <div class="stat-number" id="avgSize">—</div>
+                <div class="stat-label">Average Campaign Size</div>
+              </div>
+              <div class="text-muted small">players / campaign</div>
+            </div>
+            <div class="bar-bg" aria-hidden>
+              <div id="avgBar" class="bar-fill" style="width:0%"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="card shadow-sm mb-3">
+      <div class="card-body">
+        <h6 class="card-title">Breakdown (demo)</h6>
+        <div class="row">
+          <div class="col-md-6">
+            <table class="table table-sm">
+              <thead class="table-light"><tr><th>User Group</th><th class="text-end">Count</th></tr></thead>
+              <tbody>
+                <tr><td>Players</td><td class="text-end" id="countPlayers">—</td></tr>
+                <tr><td>Dungeon Masters</td><td class="text-end" id="countDMs">—</td></tr>
+                <tr><td>Admins</td><td class="text-end" id="countAdmins">—</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="col-md-6">
+            <p class="mb-1"><strong>Campaign size distribution</strong></p>
+            <ul class="list-unstyled small mb-0" id="sizeDist">
+              <!-- populated by JS -->
+            </ul>
+          </div>
+        </div>
+        <div class="mt-3 d-flex gap-2">
+          <button id="randomize" class="btn btn-outline-primary btn-sm">Randomize demo stats</button>
+          <button id="reset" class="btn btn-outline-secondary btn-sm">Reset to defaults</button>
+          <div class="ms-auto text-muted small" id="updatedAt">Updated: —</div>
+        </div>
+      </div>
+    </div>
+
+    <footer class="text-muted small">
+      This page shows fabricated statistics for demonstration. Integrate with your backend to show real metrics.
+    </footer>
+  </div>
+
+  <script>
+    // Demo stats (replace with real API calls)
+    const defaultStats = {
+      totalUsers: 1254,
+      usersChangePct: 3.8,
+      totalCampaigns: 312,
+      avgCampaignSize: 4.6,
+      players: 980,
+      dms: 240,
+      admins: 34,
+      sizeDistribution: [
+        {label: "1-2 players", count: 45},
+        {label: "3-4 players", count: 140},
+        {label: "5-6 players", count: 90},
+        {label: "7+ players", count: 37}
+      ]
+    };
+
+    function renderStats(s) {
+      document.getElementById('totalUsers').textContent = s.totalUsers.toLocaleString();
+      const usersChange = document.getElementById('usersChange');
+      usersChange.textContent = (s.usersChangePct >= 0 ? '+' : '') + s.usersChangePct.toFixed(1) + '%';
+      usersChange.className = s.usersChangePct >= 0 ? 'text-success small' : 'text-danger small';
+
+      document.getElementById('totalCampaigns').textContent = s.totalCampaigns.toLocaleString();
+      document.getElementById('campaignsChange').textContent = 'demo';
+
+      document.getElementById('avgSize').textContent = s.avgCampaignSize.toFixed(1);
+      // fill bar (max visualize up to 10 players)
+      const pct = Math.min(100, (s.avgCampaignSize / 10) * 100);
+      document.getElementById('avgBar').style.width = pct + '%';
+
+      document.getElementById('countPlayers').textContent = s.players.toLocaleString();
+      document.getElementById('countDMs').textContent = s.dms.toLocaleString();
+      document.getElementById('countAdmins').textContent = s.admins.toLocaleString();
+
+      const ul = document.getElementById('sizeDist');
+      ul.innerHTML = '';
+      s.sizeDistribution.forEach(item => {
+        const li = document.createElement('li');
+        li.textContent = `${item.label}: ${item.count}`;
+        ul.appendChild(li);
+      });
+
+      document.getElementById('updatedAt').textContent = 'Updated: ' + new Date().toLocaleString();
+    }
+
+     function randomizeStats() {
+      const base = JSON.parse(JSON.stringify(defaultStats));
+      base.totalUsers = Math.round(base.totalUsers * (0.8 + Math.random() * 0.6));
+      base.usersChangePct = (Math.random() * 10 - 5);
+      base.totalCampaigns = Math.round(base.totalCampaigns * (0.7 + Math.random() * 0.6));
+      base.avgCampaignSize = +(2 + Math.random() * 6).toFixed(1);
+      base.players = Math.round(base.totalUsers * (0.7 + Math.random() * 0.25));
+      base.dms = Math.round(base.totalUsers * (0.18 + Math.random() * 0.08));
+      base.admins = Math.round(base.totalUsers * 0.02);
+      base.sizeDistribution = [
+        {label: "1-2 players", count: Math.round(base.totalCampaigns * Math.random() * 0.2)},
+        {label: "3-4 players", count: Math.round(base.totalCampaigns * Math.random() * 0.5)},
+        {label: "5-6 players", count: Math.round(base.totalCampaigns * Math.random() * 0.2)},
+        {label: "7+ players", count: Math.round(base.totalCampaigns * Math.random() * 0.1)}
+      ];
+      return base;
+    }
+
+    renderStats(defaultStats);
+
+    document.getElementById('randomize').addEventListener('click', () => {
+      const s = randomizeStats();
+      renderStats(s);
+    });
+
+    document.getElementById('reset').addEventListener('click', () => {
+      renderStats(defaultStats);
+    });
+  </script>
+</body>
+</html>
