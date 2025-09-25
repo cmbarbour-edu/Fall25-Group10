@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    <style>
+        body {
+            overflow-x: hidden;
+        }
+        .navbar {
+            .dropdown-menu {
+                position:absolute;
+                justify-content: end;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar bg-dark boarder-bottom border-3 border-secondary" data-bs-theme="dark">
+        <div class="container-fluid" position="relative">
+            <a class="navbar-brand" href="/high-fidelity-prototype/provider-prototype/dmhome.html">
+                <img src="/high-fidelity-prototype/images/d20OutlineWhite.PNG" alt="Nat20 Network" width="30" height="auto" class="d-inline-block align-text-top">
+            Nat20 Network
+            </a>
+            <ul class="navbar-nav justify-content-center">
+                <ul class="nav justify-content-left">
+                    <li class="nav-item align-middle">
+                        <a class="nav-link" href="/high-fidelity-prototype/tools.html">Tools</a>
+                    </li>
+                    <li class="nav-item align-middle">
+                        <a class="nav-link" href="campaignrequests.html">View Requests</a>
+                    </li>
+                    <li class="nav-item dropdown-center">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            Profile
+                        </a>
+                        <ul class="dropdown-menu dropdown-menu-end dropdown-menu-dark">
+                            <li><a class="dropdown-item" href="manageprofile.html">Manage profile</a></li>
+                            <li><a class="dropdown-item" href="dmhome.html">Home</a></li>
+                            <li><a class="dropdown-item" href="playerfeedback.html">See reviews</a></li>
+                            <li><a class="dropdown-item" href="/high-fidelity-prototype/home.html">Log Out</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </ul>
+        </div>
+    </nav>
+    <!-- Use cards with player name as title that redirects to player stats page; subtitle is what campaign they wish to join; body content is their intro message-->
+    <p class="fw-bold fs-1">Player Requests</p>
+    <div class="container">
+        <div class="row">
+            <div class="col col-md">
+                <div class="card">
+                    <h5 class="card-title mx-1">Player: <a href="playerstats.html">@purplelinebear</a></h5>
+                    <h6 class="card-subtitle mx-1 mb-2 ">Campaign: <a href="capaignexample.html">Delve into the Black Abyss</a></h6>
+                    <p class="card-text mx-1 mb-1 text-body-secondary">Hi @hollow.wood.13, I saw your campaign about pirates and fell in love. It sounds just like one of my favourite movies, The Princess Bride! Do you have room in your party for 1 more player? I would love to see what you do with the world and meet some of the other players! I look forward to hearing back from you! </p>
+                    <div class="row mx-auto">
+                        <div class="col col-6">
+                            <a class="btn btn-primary">Accept</a>
+                        </div>
+                        <div class="col col-6">
+                            <a class="btn btn-secondary">Reject</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
