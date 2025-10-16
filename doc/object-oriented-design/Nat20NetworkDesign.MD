@@ -1,4 +1,4 @@
-# LocalHarvest Hub - Software Design 
+# Nat20 Network - Software Design 
 
 Version 1  
 Prepared by Caleb Barbour, Bryson Parsons, and Nehemiah McClain\
@@ -61,4 +61,4 @@ A customer may write a review for a box they subscribed to. They will be able to
 ## 3. UML Class Diagram
 ![UML Class Diagram](https://github.com/csc340-uncg/f25-team0/blob/main/doc/object-oriented-design/class-diagram.png)
 ## 4. Database Schema
-![UML Class Diagram](https://github.com/csc340-uncg/f25-team0/blob/main/doc/object-oriented-design/schema.png)
+![UML Class Diagram](https://github.com/cmbarbour-edu/Fall25-Group10/blob/main/doc/object-oriented-design/schema.png)
