@@ -74,6 +74,6 @@ A Sys Admin can look through submitted reports to determine if a player or DM ne
 A Sys Admin can view all campaigns and can also remove campaigns for inappropriate content or violating any other terms of service.
 
 ## 3. UML Class Diagram
-![UML Class Diagram](https://github.com/csc340-uncg/f25-team0/blob/main/doc/object-oriented-design/Nat20NetworkUML.png)
+![UML Class Diagram](https://github.com/cmbarbour-edu/Fall25-Group10/blob/main/doc/object-oriented-design/Nat20NetworkUML.png)
 ## 4. Database Schema
 ![UML Class Diagram](https://github.com/cmbarbour-edu/Fall25-Group10/blob/cbarbour-milestone4/doc/object-oriented-design/schema.png)
