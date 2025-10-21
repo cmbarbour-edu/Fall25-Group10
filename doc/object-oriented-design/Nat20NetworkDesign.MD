@@ -21,12 +21,12 @@ Table of Contents
 | Name | Date    | Reason For Changes  | Version   |
 | ---- | ------- | ------------------- | --------- |
 |  Caleb  |10/16     | Initial Design      |    1      |
-|      |         |                     |           |
+|Brycen|  10/21       |  Customer uses   |   3        |
 |      |         |                     |           |
 
 ## 1. Product Overview
-LocalHarvest Hub is a simple, comprehensive, easy to use web app with the goal of connecting consumers to locally grown produce. Farmers and customers make use of the centralized platform to meet their needs. 
-Farmers create and publish produce boxes, customers subscribe any available boxes that they are interested in, either as a one-off or recurring subscription.
+The Nat20 Network is a simple, easy to use web app with the goal of connecting DnD players and DMs together. DMs and players make use of the centralized platform to meet their needs, which is of course, creating and joining campaigns, with the players not needing to create or copy a created character sheet on the website. 
+DMs create and publish DnD campaigns, and players request to join any available campaigns that they are interested in, which is then accepted by the DM.
 
 ## 2. Use Cases
 ### 2.1 Use Case Model
@@ -46,17 +46,17 @@ A DM shall be able to create a new campaign listing. They must provide a campaig
 ##### 2.2.1.4 View Customer Stats
 A DM shall be able to view several statistics such as the number of times a player has been kicked from a campaign and the highest level character they have played.
 
-#### 2.2.2 Actor: Customer
+#### 2.2.2 Actor: Player
 ##### 2.2.2.1 Sign Up
-A customer can sign up to create their profile with their name, email, password, and address. Emails must be unique.
+A player can sign up to create their profile with a username, email, and password. Emails must be unique.
 ##### 2.2.2.2 Log In
-A customer shall be able to sign in using their registred email and password. After logging in, the customer shall be directed their dashboard where they see an overview of their subscriptions.
-##### 2.2.2.3 Browse Produce Boxes
-A customer shall be able to view available produce boxes. They can do this from the home page or using a search function. They can also filter boxes by name, descriptions, or farm. They will also be able to select one box and view more details.
-##### 2.2.1.4 Subscribe to Produce Box
-Upon selecting a box, a customer shall be able to subscribe for the box using a one-click action. This box will then appear on their dashboard, and they will be able to ammend the subscription.
-##### 2.2.1.5 Review Produce Box
-A customer may write a review for a box they subscribed to. They will be able to rate the box based on freshness and delivery.
+A player shall be able to sign in using their registred email and password. After logging in, the player shall be directed their dashboard where they see an overview of their subscriptions.
+##### 2.2.2.3 Browse Campaigns
+A player shall be able to view available DnD campaigns. They can do this from the home page or using a search function. They can also filter boxes by name, descriptions, or farm. They will also be able to select one box and view more details.
+##### 2.2.1.4 Request to Join Campaigns
+Upon selecting a campaign, a player shall be able to request to join a campaign using a two click system, which will include a description as to why they want to join the campaign. The campaign will then appear on their dashboard once the DM has accepted the join request, and they will be able to ammend their joining of the campaign if they so wish. They can also be forcibly removed from the campaign by the DM, and the player will recieve a notification if they are removed.
+##### 2.2.1.5 Review Campaigns
+A player may write a review for a campaign they joined. They will be able to rate the campaign based on their experience in the campaign.
 
 #### 2.2.3 Actor: SysAdmin
 ##### 2.2.3.1 Sign Up
