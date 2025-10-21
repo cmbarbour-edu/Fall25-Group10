@@ -13,7 +13,8 @@ Table of Contents
   * 2.1 [Use Case Model](#21-use-case-model)
   * 2.2 [Use Case Descriptions](#22-use-case-descriptions)
     * 2.2.1 [Actor: Dungeon Master](#221-actor-dungeon-master)
-    * 2.2.2 [Actor: Customer](#222-actor-customer) 
+    * 2.2.2 [Actor: Player](#222-actor-player)
+    * 2.2.3 [Actor: Sys Admin](#223-actor-sys-admin)  
 * 3 [UML Class Diagram](#3-uml-class-diagram)
 * 4 [Database Schema](#4-database-schema)
 
@@ -21,7 +22,7 @@ Table of Contents
 | Name | Date    | Reason For Changes  | Version   |
 | ---- | ------- | ------------------- | --------- |
 |  Caleb  |10/16     | Initial Design      |    1      |
-|Brycen|  10/21       |  Customer uses   |   3.1        |
+|Brycen|  10/21       |  Customer uses   |   2        |
 |      |         |                     |           |
 
 ## 1. Product Overview
@@ -58,21 +59,21 @@ Upon selecting a campaign, a player shall be able to request to join a campaign 
 ##### 2.2.1.5 Review Campaigns
 A player may write a review for a campaign they joined. They will be able to rate the campaign based on their experience in the campaign.
 
-#### 2.2.3 Actor: SysAdmin
+#### 2.2.3 Actor: Sys Admin
 ##### 2.2.3.1 Sign Up
-A SysAdmin can sign up to create their profile with their name, email, password, and address. Emails must be unique.
+A Sys Admin can sign up to create their profile with their name, email, password, and address. Emails must be unique.
 ##### 2.2.3.2 Log In
-A SysAdmin shall be able to sign in using their registred email and password. After logging in, the SysAdmin shall be directed their dashboard, where they can investigate reviews, review and remove campaigns, and view usage statistics.
+A Sys Admin shall be able to sign in using their registred email and password. After logging in, the Sys Admin shall be directed their dashboard, where they can investigate reviews, review and remove campaigns, and view usage statistics.
 ##### 2.2.3.3 Update Profile
-A Sysadmin shall be able to modify their profile by going to their profile page. Here, they can change their email, password, and username. 
+A Sys admin shall be able to modify their profile by going to their profile page. Here, they can change their email, password, and username. 
 ##### 2.2.3.4 View Usage Statistics
-A SysAdmin will be able to view statistics about total users, total campaigns, average players in a campaign, and how many current users are online.
+A Sys Admin will be able to view statistics about total users, total campaigns, average players in a campaign, and how many current users are online.
 ##### 2.2.3.5 Investigate Reported Reviews
-A SysAdmin can look through submitted reports to determine if a player or DM needs to be removed from a campaign or removed completely.
+A Sys Admin can look through submitted reports to determine if a player or DM needs to be removed from a campaign or removed completely.
 ##### 2.2.3.6 Review/Remove Campaigns
-A SysAdmin can view all campaigns and can also remove campaigns for inappropriate content or violating any other terms of service.
+A Sys Admin can view all campaigns and can also remove campaigns for inappropriate content or violating any other terms of service.
 
 ## 3. UML Class Diagram
-![UML Class Diagram](https://github.com/csc340-uncg/f25-team0/blob/main/doc/object-oriented-design/class-diagram.png)
+![UML Class Diagram](https://github.com/cmbarbour-edu/Fall25-Group10/blob/main/doc/object-oriented-design/Nat20NetworkUML.png)
 ## 4. Database Schema
 ![UML Class Diagram](https://github.com/cmbarbour-edu/Fall25-Group10/blob/cbarbour-milestone4/doc/object-oriented-design/schema.png)
