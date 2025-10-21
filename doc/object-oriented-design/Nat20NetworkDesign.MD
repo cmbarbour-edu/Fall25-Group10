@@ -21,7 +21,7 @@ Table of Contents
 | Name | Date    | Reason For Changes  | Version   |
 | ---- | ------- | ------------------- | --------- |
 |  Caleb  |10/16     | Initial Design      |    1      |
-|Brycen|  10/21       |  Customer uses   |   3        |
+|Brycen|  10/21       |  Customer uses   |   3.1        |
 |      |         |                     |           |
 
 ## 1. Product Overview
