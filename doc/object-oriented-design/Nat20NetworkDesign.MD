@@ -30,7 +30,7 @@ Farmers create and publish produce boxes, customers subscribe any available boxe
 
 ## 2. Use Cases
 ### 2.1 Use Case Model
-![Use Case Model](https://github.com/csc340-uncg/f25-team0/blob/main/doc/Object-Oriented-Design/use-case.png)
+![Use Case Model](https://github.com/cmbarbour-edu/Fall25-Group10/blob/nmcclain-milestone4/doc/object-oriented-design/nat20use-case.png)
 
 ### 2.2 Use Case Descriptions
 
@@ -57,6 +57,20 @@ A customer shall be able to view available produce boxes. They can do this from 
 Upon selecting a box, a customer shall be able to subscribe for the box using a one-click action. This box will then appear on their dashboard, and they will be able to ammend the subscription.
 ##### 2.2.1.5 Review Produce Box
 A customer may write a review for a box they subscribed to. They will be able to rate the box based on freshness and delivery.
+
+#### 2.2.3 Actor: SysAdmin
+##### 2.2.3.1 Sign Up
+A SysAdmin can sign up to create their profile with their name, email, password, and address. Emails must be unique.
+##### 2.2.3.2 Log In
+A SysAdmin shall be able to sign in using their registred email and password. After logging in, the SysAdmin shall be directed their dashboard, where they can investigate reviews, review and remove campaigns, and view usage statistics.
+##### 2.2.3.3 Update Profile
+A Sysadmin shall be able to modify their profile by going to their profile page. Here, they can change their email, password, and username. 
+##### 2.2.3.4 View Usage Statistics
+A SysAdmin will be able to view statistics about total users, total campaigns, average players in a campaign, and how many current users are online.
+##### 2.2.3.5 Investigate Reported Reviews
+A SysAdmin can look through submitted reports to determine if a player or DM needs to be removed from a campaign or removed completely.
+##### 2.2.3.6 Review/Remove Campaigns
+A SysAdmin can view all campaigns and can also remove campaigns for inappropriate content or violating any other terms of service.
 
 ## 3. UML Class Diagram
 ![UML Class Diagram](https://github.com/csc340-uncg/f25-team0/blob/main/doc/object-oriented-design/class-diagram.png)
