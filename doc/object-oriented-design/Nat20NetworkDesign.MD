@@ -14,7 +14,7 @@ Table of Contents
   * 2.2 [Use Case Descriptions](#22-use-case-descriptions)
     * 2.2.1 [Actor: Dungeon Master](#221-actor-dungeon-master)
     * 2.2.2 [Actor: Player](#222-actor-player)
-    * 2.2.3 [Actor: Sys Admin](#222-actor-sys-admin)  
+    * 2.2.3 [Actor: Sys Admin](#223-actor-sys-admin)  
 * 3 [UML Class Diagram](#3-uml-class-diagram)
 * 4 [Database Schema](#4-database-schema)
 
