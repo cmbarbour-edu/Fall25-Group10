@@ -16,7 +16,7 @@ import java.util.Set;
 @NoArgsConstructor
 @Table(name = "players")
 
-public class Players {
+public class Player {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -38,7 +38,7 @@ public class Players {
    @ManyToMany(mappedBy = "players")
     private Set<campaign> campaigns = new HashSet<>();
 
-    public Players(long id) {
+    public Player(long id) {
         this.id = id;
     }
     

@@ -11,8 +11,8 @@ import java.util.List;
 @RequestMapping("/api/players")
 @RequiredArgsConstructor
 
-public class PlayersController {
-    private final PlayersService playerService;
+public class PlayerController {
+    private final PlayerService playerService;
 
     @PostMapping
     public ResponseEntity<Player> createPlayer(@Valid @RequestBody Player player) {
