@@ -1,4 +1,4 @@
-package Nat20.Network.Requests;
+package Nat20.Network.requests;
 
 public class RequestsService {
     
