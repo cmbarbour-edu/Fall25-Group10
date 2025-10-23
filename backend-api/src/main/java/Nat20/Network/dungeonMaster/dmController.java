@@ -1,4 +1,4 @@
-package Nat20Network.Network.dungeonMaster;
+package Nat20.Network.dungeonMaster;
 
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
@@ -8,21 +8,21 @@ import org.springframework.web.bind.annotation.*;
 @RestController
 @RequestMapping("/api/DMs")
 @RequiredArgsConstructor
-public class dmController {
-    private final dmService dmService;
+public class DMController {
+    private final DMService dmService;
 
     @PostMapping
-    public ResponseEntity<dm> createDm(@Valid @RequestBody dm dm) {
-        return ResponseEntity.ok(dmService.createDm(dm));
+    public ResponseEntity<DM> createDm(@Valid @RequestBody DM dm) {
+        return ResponseEntity.ok(dmService.createDM(dm));
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<dm> updateDm(@PathVariable Long id, @Valid @RequestBody dm dmDetails) {
-        return ResponseEntity.ok(dmService.updateDm(id, dmDetails));
+    public ResponseEntity<DM> updateDm(@PathVariable Long id, @Valid @RequestBody DM dmDetails) {
+        return ResponseEntity.ok(dmService.updateDM(id, dmDetails));
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<dm> getDm(@PathVariable Long id) {
+    public ResponseEntity<DM> getDm(@PathVariable Long id) {
         return ResponseEntity.ok(dmService.getDMById(id));
     }
 }

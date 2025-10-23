@@ -18,7 +18,7 @@ import Nat20.Network.review.*;
 @NoArgsConstructor
 @Entity
 @Table(name = "dungeon_masters")
-public class dm {
+public class DM {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long dmID;
@@ -38,23 +38,23 @@ public class dm {
 
     @OneToMany(mappedBy = "dungeon_master", cascade = CascadeType.ALL)
     @JsonIgnoreProperties("dungeon_master")
-    private List<campaign> campaigns = new ArrayList<>();
+    private List<Campaign> campaigns = new ArrayList<>();
 
     @OneToMany(mappedBy = "dungeon_master", cascade = CascadeType.ALL)
     @JsonIgnoreProperties("dungeon_master")
     private List<review> reviews = new ArrayList<>();
 
-    public dm(Long id) {
+    public DM(Long id) {
         this.dmID = id;
     }
     
-    public dm(String username, String email, String password) {
+    public DM(String username, String email, String password) {
         this.username = username;
         this.email = email;
         this.password = password;
     }
 
-    public dm(Long dmID, String username, String email, String password) {
+    public DM(Long dmID, String username, String email, String password) {
         this.dmID = dmID;
         this.username = username;
         this.email = email;
