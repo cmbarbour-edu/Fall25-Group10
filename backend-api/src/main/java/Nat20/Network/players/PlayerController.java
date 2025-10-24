@@ -21,7 +21,7 @@ public class PlayerController {
 
     @PutMapping("/{id}")
     public ResponseEntity<Player> updatePlayer(@PathVariable Long id, @Valid @RequestBody Player playerDetails) {
-        return ResponseEntity.ok(playerService.updateCustomer(id, playerDetails));
+        return ResponseEntity.ok(playerService.updatePlayer(id, playerDetails));
     }
 
     @GetMapping("/{id}")
