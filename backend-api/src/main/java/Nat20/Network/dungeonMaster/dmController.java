@@ -25,4 +25,12 @@ public class DMController {
     public ResponseEntity<DM> getDm(@PathVariable Long id) {
         return ResponseEntity.ok(dmService.getDMById(id));
     }
+
+    @DeleteMapping("/{id}")
+    public ResponseEntity<Void> deleteDm(@PathVariable Long id) {
+        dmService.deleteDM(id);
+        return ResponseEntity.noContent().build();
+    }
+
+    // Need to have method to review all player statistics (both the statistics from the player and the DM's average ranking)
 }

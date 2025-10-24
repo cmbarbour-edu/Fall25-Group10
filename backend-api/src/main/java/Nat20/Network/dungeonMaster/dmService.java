@@ -28,8 +28,7 @@ public class DMService {
         }
         existingDm.setUsername(dmDetails.getUsername());
         existingDm.setEmail(dmDetails.getEmail());
-        // Update other fields as necessary
-
+        existingDm.setPassword(dmDetails.getPassword());
         return dmRepository.save(existingDm);
     }
 
@@ -41,5 +40,12 @@ public class DMService {
     public DM getDMByEmail(String email) {
         return dmRepository.findByEmail(email)
                 .orElseThrow(() -> new EntityNotFoundException("DM not found with email: " + email));
+    }
+
+    public void deleteDM(Long id) {
+        if (!dmRepository.existsById(id)) {
+            throw new EntityNotFoundException("DM not found with id: " + id);
+        }
+        dmRepository.deleteById(id);
     }
 }
