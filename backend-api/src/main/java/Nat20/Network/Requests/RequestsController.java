@@ -1,7 +1,7 @@
 package Nat20.Network.requests;
 
 import Nat20.Network.players.PlayerService;
-import Nat20.Network.dungeonMaster.dmService;
+import Nat20.Network.dungeonMaster.DMService;
 import Nat20.Network.campaign.CampaignService;
 
 import jakarta.validation.Valid;
@@ -19,7 +19,7 @@ public class RequestsController {
     private final RequestsService requestsService;
     private final CampaignService campaignService;
     private final PlayerService playerService;
-    private final dmService dmService;
+    private final DMService dmService;
 
     @PostMapping
     public ResponseEntity<Requests> createRequest(@Valid @RequestBody Requests request) {
