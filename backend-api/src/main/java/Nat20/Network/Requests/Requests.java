@@ -6,8 +6,8 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
-import Nat20_Network.players.Player;
-import Nat20_Network.campaigns.Campaign;
+import Nat20.Network.players.*;
+import Nat20.Network.campaign.*;
 
 @Data
 @NoArgsConstructor
@@ -31,13 +31,13 @@ public class Requests {
 
     @NotNull
     @Enumerated(EnumType.STRING)
-    private SubscriptionType type;
+    private RequestType type;
 
     @NotNull
     private boolean active = true;
 }
 
-enum SubscriptionType {
+enum RequestType {
     ONE_TIME 
 }
 

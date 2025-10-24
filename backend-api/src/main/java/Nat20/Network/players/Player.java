@@ -1,6 +1,6 @@
 package Nat20.Network.players;
 
-
+import Nat20.Network.requests.*;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;
