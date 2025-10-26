@@ -2,6 +2,11 @@ package Nat20.Network.sysadmin;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
+
+import Nat20.Network.dungeonMaster.DM;
+import Nat20.Network.players.Player;
+import Nat20.Network.review.Review;
+
 import java.util.List;
 
 @RestController
@@ -50,10 +55,10 @@ public class SysadminController {
         sysadminService.deleteDMById(id);
     }
 
-    @GetMapping("/statistics")
-    public List<Statistics> getAllStatistics() {
-        return sysadminService.getAllStatistics();
-    }
+    //@GetMapping("/statistics")
+    //public List<Statistics> getAllStatistics() {
+       // return sysadminService.getAllStatistics();
+    //}
 
     @DeleteMapping("/services/{id}")
     public void deleteService(@PathVariable Long id) {

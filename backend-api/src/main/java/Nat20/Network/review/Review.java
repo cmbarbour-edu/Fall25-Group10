@@ -8,6 +8,9 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
+import Nat20.Network.campaign.Campaign;
+import Nat20.Network.players.Player;
+
 import java.time.LocalDateTime;
 
 @Data
@@ -32,12 +35,12 @@ public class Review {
     @NotNull
     @Min(1)
     @Max(5)
-    private Double freshnessRating;
+    private Double campaignRating;
 
     @NotNull
     @Min(1)
     @Max(5)
-    private Double deliveryRating;
+    private Double dmRating;
 
     @Min(1)
     @Max(5)

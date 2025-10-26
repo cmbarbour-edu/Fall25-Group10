@@ -4,14 +4,21 @@ import org.apache.naming.ServiceRef;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import Nat20.Network.campaign.Campaign;
+import Nat20.Network.campaign.CampaignRepository;
+import Nat20.Network.dungeonMaster.DM;
+import Nat20.Network.dungeonMaster.DMRepository;
+import Nat20.Network.players.Player;
+import Nat20.Network.players.PlayerRepo;
 import Nat20.Network.review.Review;
+import Nat20.Network.review.ReviewRepository;
 
 import java.util.List;
 
 @Service
 public class SysadminService {
     @Autowired
-    private PlayerRepository playerRepository;
+    private PlayerRepo playerRepository;
 
     @Autowired  
     private ReviewRepository reviewRepository;
@@ -20,10 +27,10 @@ public class SysadminService {
     private DMRepository dmRepository;
 
     @Autowired
-    private ServiceRepository serviceRepository;
+    private CampaignRepository campaignRepository;
 
-    @Autowired  
-    private StatisticsRepository statisticsRepository;
+    //@Autowired  
+    //private StatisticsRepository statisticsRepository;
 
     public List<Review> getAllReviews() {
         return reviewRepository.findAll();
@@ -57,16 +64,16 @@ public class SysadminService {
         return dmRepository.save(dm);
     }
 
-    public List<Statistics> getAllStatistics() {
-        return statisticsRepository.findAll();
+    //public List<Statistics> getAllStatistics() {
+    //    return statisticsRepository.findAll();
+    //}
+
+    public void deleteServiceById(Long campaignId) {
+        campaignRepository.deleteById(campaignId);
     }
 
-    public void deleteServiceById(Long serviceId) {
-        serviceRepository.deleteById(serviceId);
-    }
-
-    public List<Review> getAllReviewsForService(Long serviceId) {
-        return reviewRepository.findByServiceId(serviceId);
+    public List<Review> getAllReviewsForService(Campaign campaign) {
+        return reviewRepository.findByCampaign(campaign);
     }
 
 }
