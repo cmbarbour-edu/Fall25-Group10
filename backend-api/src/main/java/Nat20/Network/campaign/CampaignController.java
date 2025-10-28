@@ -15,7 +15,7 @@ public class CampaignController {
     private final CampaignService campaignService;
     
     @PostMapping
-    public ResponseEntity<Campaign> createDm(@Valid @RequestBody Campaign campaign) {
+    public ResponseEntity<Campaign> createCampaign(@Valid @RequestBody Campaign campaign) {
         return ResponseEntity.ok(campaignService.createCampaign(campaign));
     }
 

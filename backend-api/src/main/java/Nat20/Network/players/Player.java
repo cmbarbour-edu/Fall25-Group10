@@ -6,6 +6,8 @@ import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import java.util.HashSet;
 import java.util.Set;
@@ -33,15 +35,18 @@ public class Player {
     @Column(nullable = false)
     private String password;
 
+    @JsonIgnore
     @JsonIgnoreProperties("players")
-   @ManyToMany(mappedBy = "players")
+    @ManyToMany(mappedBy = "players")
     private Set<Campaign> campaigns = new HashSet<>();
+
+    @OneToOne(cascade = CascadeType.ALL, orphanRemoval = true)
+    @JoinColumn(name = "stats_id", referencedColumnName = "id")
+    private PlayerStats stats;
 
     public Player(long id) {
         this.playerID = id;
     }
-    
-    
 
     public Set<Campaign> getCampaigns() {
         return campaigns;
@@ -56,4 +61,5 @@ public class Player {
         campaigns.remove(c);
         c.getPlayers().remove(this);
     }
+
 }
