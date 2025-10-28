@@ -58,7 +58,7 @@ public class SysadminController {
     //@GetMapping("/statistics")
     //public List<Statistics> getAllStatistics() {
        // return sysadminService.getAllStatistics();
-    //}
+    //} updated i'll finish later
 
     @DeleteMapping("/services/{id}")
     public void deleteService(@PathVariable Long id) {

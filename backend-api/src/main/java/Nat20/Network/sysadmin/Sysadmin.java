@@ -1,6 +1,7 @@
 package Nat20.Network.sysadmin;
 
 import jakarta.persistence.*;
+import jakarta.validation.constraints.NotBlank;
 
 @Entity
 @Table(name = "sysadmin")
@@ -15,6 +16,10 @@ public class Sysadmin {
 
     @Column(nullable = false)
     private String email;
+
+    @NotBlank
+    @Column(nullable = false)
+    private String password;
 
     public Sysadmin() {}
 
