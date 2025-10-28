@@ -1,21 +1,14 @@
 package Nat20.Network.campaign;
 
 import jakarta.persistence.*;
-import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import lombok.Builder.Default;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 import Nat20.Network.dungeonMaster.*;
-import Nat20.Network.player.*;
-import Nat20.Network.request.*;
-import Nat20.Network.review.*;
-
-import java.util.ArrayList;
+import Nat20.Network.players.*;
 import java.util.HashSet;
-import java.util.List;
 import java.util.Set;
 
 @Data
@@ -48,7 +41,7 @@ public class Campaign {
     @ManyToOne
     @JoinColumn(name = "dm_id", nullable = false)
     @JsonIgnoreProperties("campaigns")
-    private DM dungeon_master;
+    private DM dm_id;
 
     @ManyToMany
     @JoinTable(
@@ -56,14 +49,14 @@ public class Campaign {
         joinColumns = @JoinColumn(name = "campaign_id", referencedColumnName = "campaignID"),
         inverseJoinColumns = @JoinColumn(name = "player_id", referencedColumnName = "playerID")
     )
-    private Set<player> players = new HashSet<>();
+    private Set<Player> players = new HashSet<>();
 
-    public void addPlayer(player p) {
+    public void addPlayer(Player p) {
         players.add(p);
         p.getCampaigns().add(this);
     }
 
-    public void removePlayer(player p) {
+    public void removePlayer(Player p) {
         players.remove(p);
         p.getCampaigns().remove(this);
     }

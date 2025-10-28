@@ -1,7 +1,6 @@
 package Nat20.Network.requests;
 
 import Nat20.Network.players.*;
-import Nat20.Network.dungeonMaster.*;
 import Nat20.Network.campaign.*;
 
 import jakarta.persistence.EntityNotFoundException;
@@ -45,9 +44,5 @@ public class RequestsService {
 
     public List<Requests> getRequestsByCampaign(Campaign campaign) {
         return requestsRepo.findByCampaign(campaign);
-    }
-
-    public List<Requests> getRequestsByDM(DM dm) {
-        return requestsRepo.findByDM(dm);
     }
 }

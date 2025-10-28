@@ -76,6 +76,6 @@ public class ReviewService {
     }
 
     public List<Review> getReviewsByDM(DM dm) {
-        return reviewRepository.findByDungeonMaster(dm);
+        return reviewRepository.findBydm(dm);
     }
 }
