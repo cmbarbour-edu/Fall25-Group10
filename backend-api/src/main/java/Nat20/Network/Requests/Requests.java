@@ -15,6 +15,7 @@ import Nat20.Network.campaign.*;
 @Table(name = "requests")
 
 public class Requests {
+    
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
