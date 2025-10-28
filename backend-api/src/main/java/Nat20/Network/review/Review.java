@@ -6,6 +6,8 @@ import jakarta.validation.constraints.Min;
 import jakarta.validation.constraints.NotNull;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 import Nat20.Network.campaign.Campaign;
@@ -25,12 +27,12 @@ public class Review {
 
     @ManyToOne
     @JoinColumn(name = "player_id", nullable = false)
-    @JsonIgnoreProperties({"reviews", "subscriptions"})
+    @JsonIgnoreProperties({"name", "email", "password", "campaigns", "stats"})
     private Player player;
 
     @ManyToOne
     @JoinColumn(name = "dm_id", nullable = false)
-    @JsonIgnoreProperties("reviews")
+    @JsonIgnoreProperties({"username", "email", "password", "campaigns", "reviews"})
     private DM dm;
 
     @ManyToOne
@@ -58,6 +60,7 @@ public class Review {
     @NotNull
     private LocalDateTime createdAt = LocalDateTime.now();
 
+    @JsonIgnore
     @Column(columnDefinition = "TEXT")
     private String dmResponse;
 

@@ -4,6 +4,8 @@ import jakarta.persistence.*;
 import jakarta.validation.constraints.NotBlank;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 import Nat20.Network.dungeonMaster.*;
@@ -33,17 +35,17 @@ public class Campaign {
 
     @Column(nullable = false, length = 255)
     private String edition;
-
-    @NotBlank
+    
     @Column(nullable = false)
     private Boolean isPublic = false;
 
     @ManyToOne
     @JoinColumn(name = "dm_id", nullable = false)
-    @JsonIgnoreProperties("campaigns")
+    @JsonIgnoreProperties({"username", "email", "password", "campaigns", "reviews"})
     private DM dm_id;
 
     @ManyToMany
+    @JsonIgnore
     @JoinTable(
         name = "campaign_players",
         joinColumns = @JoinColumn(name = "campaign_id", referencedColumnName = "campaignID"),

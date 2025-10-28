@@ -13,6 +13,7 @@ import java.util.List;
 
 public class PlayerController {
     private final PlayerService playerService;
+    private final PlayerStatsService playerStatsService;
 
     @PostMapping
     public ResponseEntity<Player> createPlayer(@Valid @RequestBody Player player) {
@@ -37,6 +38,50 @@ public class PlayerController {
     @DeleteMapping("/{id}")
     public ResponseEntity<Void> deletePlayer(@PathVariable Long id) {
         playerService.deletePlayer(id);
+        return ResponseEntity.noContent().build();
+    }
+
+    @GetMapping("/{playerId}/stats")
+    public ResponseEntity<PlayerStats> getPlayerStats(@PathVariable Long playerId) {
+        Player player = playerService.getPlayerById(playerId);
+        PlayerStats stats = player.getStats();
+        if (stats == null) {
+            return ResponseEntity.notFound().build();
+        }
+        return ResponseEntity.ok(stats);
+    }
+
+    @PostMapping("/{playerId}/stats")
+    public ResponseEntity<PlayerStats> createPlayerStats(@PathVariable Long playerId,
+                                                         @Valid @RequestBody PlayerStats stats) {
+        Player player = playerService.getPlayerById(playerId);
+        stats = playerStatsService.createStats(stats);
+        player.setStats(stats); // link stats to player
+        playerService.updatePlayer(playerId, player);
+        return ResponseEntity.ok(stats);
+    }
+
+    @PutMapping("/{playerId}/stats")
+    public ResponseEntity<PlayerStats> updatePlayerStats(@PathVariable Long playerId,
+                                                         @Valid @RequestBody PlayerStats stats) {
+        Player player = playerService.getPlayerById(playerId);
+        PlayerStats existingStats = player.getStats();
+        if (existingStats == null) {
+            return ResponseEntity.notFound().build();
+        }
+        PlayerStats updatedStats = playerStatsService.updateStats(existingStats.getId(), stats);
+        return ResponseEntity.ok(updatedStats);
+    }
+
+    @DeleteMapping("/{playerId}/stats")
+    public ResponseEntity<Void> deletePlayerStats(@PathVariable Long playerId) {
+        Player player = playerService.getPlayerById(playerId);
+        PlayerStats stats = player.getStats();
+        if (stats != null) {
+            playerStatsService.deleteStats(stats.getId());
+            player.setStats(null);
+            playerService.updatePlayer(playerId, player);
+        }
         return ResponseEntity.noContent().build();
     }
 }
