@@ -9,8 +9,9 @@ import Nat20.Network.players.Player;
 
 import java.util.List;
 
+@Repository
 public interface ReviewRepository extends JpaRepository<Review, Long>{
-    List<Review> findByDungeonMaster(DM dm);
+    List<Review> findBydm(DM dm_id);
     List<Review> findByPlayer(Player player);
     List<Review> findByCampaign(Campaign campaign);
 }

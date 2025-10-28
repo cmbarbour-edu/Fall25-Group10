@@ -1,6 +1,5 @@
 package Nat20.Network.players;
 
-import Nat20.Network.requests.*;
 import Nat20.Network.campaign.*;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.Email;
@@ -9,7 +8,6 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import java.util.HashSet;
-import java.util.List;
 import java.util.Set;
 
 @Entity
@@ -20,7 +18,7 @@ import java.util.Set;
 public class Player {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    private Long playerID;
 
     @NotBlank
     @Column(nullable = false)
@@ -37,24 +35,24 @@ public class Player {
 
     @JsonIgnoreProperties("players")
    @ManyToMany(mappedBy = "players")
-    private Set<campaign> campaigns = new HashSet<>();
+    private Set<Campaign> campaigns = new HashSet<>();
 
     public Player(long id) {
-        this.id = id;
+        this.playerID = id;
     }
     
     
 
-    public Set<campaign> getCampaigns() {
+    public Set<Campaign> getCampaigns() {
         return campaigns;
     }
 
-    public void addCampaign(campaign c) {
+    public void addCampaign(Campaign c) {
         campaigns.add(c);
         c.getPlayers().add(this);
     }
 
-    public void removeCampaign(campaign c) {
+    public void removeCampaign(Campaign c) {
         campaigns.remove(c);
         c.getPlayers().remove(this);
     }

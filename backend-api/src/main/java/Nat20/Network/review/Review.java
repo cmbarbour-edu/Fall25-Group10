@@ -9,6 +9,7 @@ import lombok.NoArgsConstructor;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 import Nat20.Network.campaign.Campaign;
+import Nat20.Network.dungeonMaster.DM;
 import Nat20.Network.players.Player;
 
 import java.time.LocalDateTime;
@@ -26,6 +27,11 @@ public class Review {
     @JoinColumn(name = "player_id", nullable = false)
     @JsonIgnoreProperties({"reviews", "subscriptions"})
     private Player player;
+
+    @ManyToOne
+    @JoinColumn(name = "dm_id", nullable = false)
+    @JsonIgnoreProperties("reviews")
+    private DM dm;
 
     @ManyToOne
     @JoinColumn(name = "campaign_id", nullable = false)

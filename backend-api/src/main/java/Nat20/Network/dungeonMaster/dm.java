@@ -8,8 +8,9 @@ import lombok.NoArgsConstructor;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
-
+import java.util.Set;
 
 import Nat20.Network.campaign.*;
 import Nat20.Network.review.*;
@@ -36,13 +37,13 @@ public class DM {
     @Column(nullable = false)
     private String password;
 
-    @OneToMany(mappedBy = "dungeon_master", cascade = CascadeType.ALL)
-    @JsonIgnoreProperties("dungeon_master")
+    @OneToMany(mappedBy = "dm_id", cascade = CascadeType.ALL)
+    @JsonIgnoreProperties("dm_id")
     private List<Campaign> campaigns = new ArrayList<>();
 
-    @OneToMany(mappedBy = "dungeon_master", cascade = CascadeType.ALL)
-    @JsonIgnoreProperties("dungeon_master")
-    private List<review> reviews = new ArrayList<>();
+    @OneToMany(mappedBy = "dm", cascade = CascadeType.ALL, orphanRemoval = true)
+    private Set<Review> reviews = new HashSet<>();
+
 
     public DM(Long id) {
         this.dmID = id;

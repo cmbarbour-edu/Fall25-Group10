@@ -1,7 +1,6 @@
 package Nat20.Network.requests;
 
 import Nat20.Network.players.PlayerService;
-import Nat20.Network.dungeonMaster.DMService;
 import Nat20.Network.campaign.CampaignService;
 
 import jakarta.validation.Valid;
@@ -19,8 +18,7 @@ public class RequestsController {
     private final RequestsService requestsService;
     private final CampaignService campaignService;
     private final PlayerService playerService;
-    private final DMService dmService;
-
+    
     @PostMapping
     public ResponseEntity<Requests> createRequest(@Valid @RequestBody Requests request) {
         return ResponseEntity.ok(requestsService.createRequest(request));
@@ -45,10 +43,5 @@ public class RequestsController {
     @GetMapping("/campaign/{campaignID}")
     public ResponseEntity<List<Requests>> getCampaignRequests(@PathVariable Long campaignID) {
         return ResponseEntity.ok(requestsService.getRequestsByCampaign(campaignService.getCampaignById(campaignID)));
-    }
-
-    @GetMapping("/dm/{dmID}")
-    public ResponseEntity<List<Requests>> getDMRequests(@PathVariable Long dmID) {
-        return ResponseEntity.ok(requestsService.getRequestsByDM(dmService.getDMById(dmID)));
     }
 }
