@@ -40,10 +40,14 @@ public class Player {
     @ManyToMany(mappedBy = "players")
     private Set<Campaign> campaigns = new HashSet<>();
 
-    @OneToOne(cascade = CascadeType.ALL, orphanRemoval = true)
-    @JoinColumn(name = "stats_id", referencedColumnName = "id")
-    private PlayerStats stats;
-
+    /*
+     * @OneToOne(cascade = CascadeType.ALL, orphanRemoval = true)
+     * 
+     * @JoinColumn(name = "stats_id", referencedColumnName = "id")
+     * 
+     * @JsonIgnoreProperties("player")
+     * private PlayerStats stats;
+     */
     public Player(long id) {
         this.playerID = id;
     }
@@ -52,6 +56,7 @@ public class Player {
         return campaigns;
     }
 
+    /*
     public void addCampaign(Campaign c) {
         campaigns.add(c);
         c.getPlayers().add(this);
@@ -61,5 +66,8 @@ public class Player {
         campaigns.remove(c);
         c.getPlayers().remove(this);
     }
+        */
+
+
 
 }

@@ -5,6 +5,8 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import Nat20.Network.campaign.*;
+
 import java.util.List;
 
 @Service
@@ -13,6 +15,7 @@ import java.util.List;
 
 public class PlayerService {
     private final PlayerRepo playerRepo;
+    private final CampaignRepository campaignRepo;
 
     public Player createPlayer(Player player) {
         if (playerRepo.existsByEmail(player.getEmail())) {
@@ -23,7 +26,7 @@ public class PlayerService {
 
     public Player updatePlayer(Long id, Player playerDetails) {
         Player player = playerRepo.findById(id)
-            .orElseThrow(() -> new EntityNotFoundException("Player not found"));
+                .orElseThrow(() -> new EntityNotFoundException("Player not found"));
 
         player.setName(playerDetails.getName());
         player.setEmail(playerDetails.getEmail());
@@ -31,9 +34,9 @@ public class PlayerService {
         return playerRepo.save(player);
     }
 
-     public Player getPlayerById(Long id) {
+    public Player getPlayerById(Long id) {
         return playerRepo.findById(id)
-            .orElseThrow(() -> new EntityNotFoundException("Player not found"));
+                .orElseThrow(() -> new EntityNotFoundException("Player not found"));
     }
 
     public List<Player> getAllPlayers() {
@@ -46,5 +49,20 @@ public class PlayerService {
         }
         playerRepo.deleteById(id);
     }
-}
 
+    public void addPlayerToCampaign(Long playerId, Long campaignId) {
+        Player player = playerRepo.findById(playerId)
+                .orElseThrow(() -> new EntityNotFoundException("Player not found"));
+
+        Campaign campaign = campaignRepo.findById(campaignId)
+                .orElseThrow(() -> new EntityNotFoundException("Campaign not found"));
+
+        // Use helper: updates both sides
+        // player.addCampaign(campaign);
+       // campaign.addPlayer(player);
+        campaign.getPlayers().add(player);
+
+        // Save owning side to persist join table
+        campaignRepo.save(campaign);
+    }
+}
