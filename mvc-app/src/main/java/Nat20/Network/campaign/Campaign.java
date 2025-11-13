@@ -42,7 +42,7 @@ public class Campaign {
     @ManyToOne
     @JoinColumn(name = "dm_id", nullable = false)
     @JsonIgnoreProperties({"username", "email", "password", "campaigns", "reviews"})
-    private DM dm_id;
+    private DM dm;
 
     @ManyToMany(cascade = CascadeType.PERSIST)
     @JsonIgnore

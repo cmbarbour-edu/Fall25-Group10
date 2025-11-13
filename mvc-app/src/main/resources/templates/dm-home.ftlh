@@ -16,12 +16,20 @@
                 justify-content: end;
             }
         }
+        .card {
+            border: none;
+            .card-body {
+                .botton {
+                    word-wrap: break-word;
+                }
+            }
+        }
     </style>
 </head>
 <body>
     <!-- Navbar -->
     <nav class="navbar bg-dark boarder-bottom border-3 border-secondary" data-bs-theme="dark">
-        <div class="container-fluid" position="relative">
+        <div class="container-fluid">
             <a class="navbar-brand" href="/high-fidelity-prototype/provider-prototype/dmhome.html">
                 <img src="/high-fidelity-prototype/images/d20OutlineWhite.PNG" alt="Nat20 Network" width="30" height="auto" class="d-inline-block align-text-top">
             Nat20 Network
@@ -49,34 +57,40 @@
             </ul>
         </div>
     </nav>
-    <!-- Create a campaign -->
-    <div class="mb-3 px-1">
-        <label for="Campaign name" class="form-label px-1">Title</label>
-        <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="i.e. Secrets of the Never-ending Gardens">
+    <!-- DM Home Info -->
+    <h1 class="text-center mt-3">Welcome, Dungeon Master!</h1>
+    <h6 class="text-center mb-3">Select what you would like to do.</h6>
+    <div class="container text-center mb-3">
+        <div class="row row-cols-md-2">
+            <div class="col col-sm">
+                <div class="card h-50">
+                    <img src="/high-fidelity-prototype/images/placeholder2.png" class="card-img-top" alt="Manage Campaigns">
+                    <div class="card-body text-center">
+                        <a href="/high-fidelity-prototype/provider-prototype/managecampaigns.html" class="btn btn-primary w-75">Manage Campaigns</a>
+                    </div>
+                </div>
+                <div class="card h-50">
+                    <img src="/high-fidelity-prototype/images/placeholder2.png" class="card-img-top" alt="View Reviews">
+                    <div class="card-body">
+                        <a href="/high-fidelity-prototype/provider-prototype/playerfeedback.html" class="btn btn-primary w-75">View Player Feedback</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col col-md">
+                <div class="card h-50">
+                    <img src="/high-fidelity-prototype/images/placeholder2.png" class="card-img-top" alt="Create Campaign">
+                    <div class="card-body">
+                        <a href="/high-fidelity-prototype/provider-prototype/createcampaign.html" class="btn btn-primary w-75">Create Campaign</a>
+                    </div>
+                </div>
+                <div class="card h-50">
+                    <img src="/high-fidelity-prototype/images/placeholder2.png" class="card-img-top" alt="View Manuals">
+                    <div class="card-body">
+                        <a href="/high-fidelity-prototype/tools.html" class="btn btn-primary w-75">View Manuals</a>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
-    <div class="mb-3 px-1">
-        <label for="Campaign edition" class="form-label px-1">Edition</label>
-        <select class="form-select" aria-label="Default campaign edition">
-            <option selected>Please select edition</option>
-            <option value="1">D&D 5e</option>
-        </select>
-    </div>
-    <div class="mb-3 px-1">
-        <label for="Short campaign description" class="form-label px-1">Short Campaign Description</label>
-        <textarea class="form-control" id="contentDescription" rows="5" placeholder="Please describe the content of your campaign in a few short sentences. This is what players will look at to determine if they want to join your party, so make it interesting!"></textarea>
-    </div>
-    <div class="mb-3 px-1">
-        <label for="Extended campaign description" class="form-label px-1">Extended Campaign Description</label>
-        <textarea class="form-control" id="contentDescription" rows="5" placeholder="Please describe your campaign in more detail, explaining the content and other important aspects of the campaign such as if it is roleplay or combat focused."></textarea>
-    </div>
-    <div class="mb-3 px-1">
-        <label for="Campaign access" class="form-label px-1">Privacy</label>
-        <select class="form-select" aria-label="Default privacy">
-            <option selected>Please select privacy options</option>
-            <option value="1">Public</option>
-            <option value="2">Private</option>
-        </select>
-    </div>
-    <a class="btn btn-primary mx-2" type="submit">Submit</a>
 </body>
 </html>

@@ -14,8 +14,8 @@ public class CampaignController {
     
     // Campaign forms
     @GetMapping
-    public Object viewAllCampaigns(Model model) {
-        model.addAttribute("campaigns", campaignService.getAllCampaigns());
+    public Object getAllCampaigns(Model model) {
+        model.addAttribute("campaignList", campaignService.getAllCampaigns());
         model.addAttribute("title", "Campaigns:");
         return "campaign-list";
     }
@@ -37,7 +37,7 @@ public class CampaignController {
     @GetMapping("/updateForm/{campaignID}")
     public Object showUpdateForm(@PathVariable Long campaignID, Model model) {
         Campaign campaign = campaignService.getCampaignById(campaignID);
-        model.addAttribute("Campaign", campaign);
+        model.addAttribute("campaign", campaign);
         model.addAttribute("title", "Update Campaign");
         return "campaign-update";
     }
@@ -50,7 +50,7 @@ public class CampaignController {
 
     @GetMapping("/{campaignID}")
     public Object getCampaignByID(@PathVariable Long campaignID, Model model) {
-        model.addAttribute("Campaign", campaignService.getCampaignById(campaignID));
+        model.addAttribute("campaign", campaignService.getCampaignById(campaignID));
         model.addAttribute("title", campaignService.getCampaignById(campaignID).getTitle());
         return "campaign-details";
     }
