@@ -9,7 +9,7 @@ import java.util.List;
 import org.springframework.ui.Model;
 
 @Controller
-@RequestMapping("/api/players")
+@RequestMapping("/players")
 @RequiredArgsConstructor
 
 public class PlayerController {
