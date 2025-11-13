@@ -41,6 +41,7 @@ public class PlayerController {
         return ResponseEntity.noContent().build();
     }
 
+    /* 
     @GetMapping("/{playerId}/stats")
     public ResponseEntity<PlayerStats> getPlayerStats(@PathVariable Long playerId) {
         Player player = playerService.getPlayerById(playerId);
@@ -84,4 +85,12 @@ public class PlayerController {
         }
         return ResponseEntity.noContent().build();
     }
+*/
+    @PutMapping("/{playerId}/campaigns/{campaignId}")
+public ResponseEntity<String> addPlayerToCampaign(
+        @PathVariable Long playerId,
+        @PathVariable Long campaignId) {
+    playerService.addPlayerToCampaign(playerId, campaignId);
+    return ResponseEntity.ok("Player added to campaign successfully!");
+}
 }

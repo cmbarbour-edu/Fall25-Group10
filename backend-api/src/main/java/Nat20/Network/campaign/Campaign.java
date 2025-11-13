@@ -44,7 +44,7 @@ public class Campaign {
     @JsonIgnoreProperties({"username", "email", "password", "campaigns", "reviews"})
     private DM dm_id;
 
-    @ManyToMany
+    @ManyToMany(cascade = CascadeType.PERSIST)
     @JsonIgnore
     @JoinTable(
         name = "campaign_players",
@@ -53,6 +53,7 @@ public class Campaign {
     )
     private Set<Player> players = new HashSet<>();
 
+    /*
     public void addPlayer(Player p) {
         players.add(p);
         p.getCampaigns().add(this);
@@ -62,5 +63,6 @@ public class Campaign {
         players.remove(p);
         p.getCampaigns().remove(this);
     }
+        */
 
 }

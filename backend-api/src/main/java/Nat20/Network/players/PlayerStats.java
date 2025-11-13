@@ -14,11 +14,11 @@ public class PlayerStats {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-
+/*
     @OneToOne(mappedBy = "stats")
     @JsonIgnore
     private Player player;
-
+*/
     @Column(nullable = false)
     private Integer numberOfTimesKicked = 0;
 
