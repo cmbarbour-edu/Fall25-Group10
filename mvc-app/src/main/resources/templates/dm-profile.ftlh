@@ -16,14 +16,6 @@
                 justify-content: end;
             }
         }
-        .card {
-            border: none;
-            .card-body {
-                .botton {
-                    word-wrap: break-word;
-                }
-            }
-        }
     </style>
 </head>
 <body>
@@ -37,7 +29,7 @@
             <ul class="navbar-nav justify-content-center">
                 <ul class="nav justify-content-left">
                     <li class="nav-item align-middle">
-                        <a class="nav-link" href="/high-fidelity-prototype/tools.html">Tools</a>
+                        <a class="nav-link" href="">Tools</a>
                     </li>
                     <li class="nav-item align-middle">
                         <a class="nav-link" href="/DMs/${DM.dmID}/requests">View Requests</a>
@@ -57,40 +49,35 @@
             </ul>
         </div>
     </nav>
-    <!-- DM Home Info -->
-    <h1 class="text-center mt-3">Welcome, Dungeon Master!</h1>
-    <h6 class="text-center mb-3">Select what you would like to do.</h6>
-    <div class="container text-center mb-3">
-        <div class="row row-cols-md-2">
+    <!-- Profile Info -->
+    <div class="container py-4">
+        <p class="fw-bold fs-1">Welcome, ${DM.username}!</p>
+        <p class="fw-bold fs-3">Username </p>
+        <p>${DM.username}</p>
+        <p class="fw-bold fs-3">Email </p>
+        <p>${DM.email}</p>
+        <p class="fw-bold fs-3">Password </p>
+        <p>${DM.password}</p>
+        <div class="container py-4">
+            <a href="/DMs/${DM.dmID}/update" class="btn btn-primary">Edit</a>
+        </div>
+        <p class="fw-bold fs-3">Campaigns </p>
+        <div class="row row-cols-1">
             <div class="col col-sm">
-                <div class="card h-50">
-                    <img src="/placeholder2.png" class="card-img-top" alt="Manage Campaigns">
-                    <div class="card-body text-center">
-                        <a href="/high-fidelity-prototype/provider-prototype/managecampaigns.html" class="btn btn-primary w-75">Manage Campaigns</a>
+                <#list campaignList as campaign>
+                    <div class="card py-3 px-2">
+                        <h5 class="card-title">${campaign.title}</h5>
+                        <h6 class="card-subtitle mb-2 text-body-secondary">${campaign.edition}</h6>
+                        <p class="card-text">${campaign.shortDescription}</p>
+                        <a href="/campaigns/${campaign.campaignID}" class="card-link">Details</a>
                     </div>
-                </div>
-                <div class="card h-50">
-                    <img src="/placeholder2.png" class="card-img-top" alt="View Reviews">
-                    <div class="card-body">
-                        <a href="/high-fidelity-prototype/provider-prototype/playerfeedback.html" class="btn btn-primary w-75">View Player Feedback</a>
-                    </div>
-                </div>
-            </div>
-            <div class="col col-md">
-                <div class="card h-50">
-                    <img src="/placeholder2.png" class="card-img-top" alt="Create Campaign">
-                    <div class="card-body">
-                        <a href="/high-fidelity-prototype/provider-prototype/createcampaign.html" class="btn btn-primary w-75">Create Campaign</a>
-                    </div>
-                </div>
-                <div class="card h-50">
-                    <img src="/placeholder2.png" class="card-img-top" alt="View Manuals">
-                    <div class="card-body">
-                        <a href="/high-fidelity-prototype/tools.html" class="btn btn-primary w-75">View Manuals</a>
-                    </div>
-                </div>
+                </#list>
             </div>
         </div>
+        <div class="fs-4 link py-3">
+            <a href="playerfeedback.html" class="fs-4 link mx">View player feedback<br></a>
+        </div>
+        <a href="/DMs/${DM.dmID}/delete" class="btn btn-danger">Delete account</a>
     </div>
 </body>
 </html>
