@@ -25,13 +25,13 @@ public class PlayerController {
 
     @PostMapping
     public Object addPlayer(Player player) {
-        Player newPlayer = PlayerService.createPlayer(player);
+        Player newPlayer = playerService.createPlayer(player);
         return "redirect:/players/" + newPlayer.getPlayerByID() + "/home";
     }
 
     @GetMapping("/{id}/update")
     public Object showUpdateForm(@PathVariable Long id, Model model) {
-        Player player = PlayerService.getPlayerById(id);
+        Player player = playerService.getPlayerById(id);
         model.addAttribute("Player", player);
         
         model.addAttribute("title", "Update Player");
@@ -40,24 +40,32 @@ public class PlayerController {
 
     @PostMapping("/{id}")
     public Object updatePlayer(@PathVariable Long id, Player playerDetails) {
-        PlayerService.updatePlayer(id, playerDetails);
+        layerService.updatePlayer(id, playerDetails);
         return "redirect:/players/" + id + "/profile";
     }
 
-    @GetMapping("/{id}")
-    public ResponseEntity<Player> getPlayer(@PathVariable Long id) {
-        return ResponseEntity.ok(playerService.getPlayerById(id));
+    @GetMapping("/{id}/home")
+    public Object getPlayerByID(@PathVariable Long id, Model model) {
+        Player player = playerService.getPlayerById(id);
+        model.addAttribute("Player", player);
+        model.addAttribute("title", "Player:");
+        return "playerhome";
     }
 
-    @GetMapping
-    public ResponseEntity<List<Player>> getAllPlayers() {
-        return ResponseEntity.ok(playerService.getAllPlayers());
-    }
-
-    @DeleteMapping("/{id}")
-    public ResponseEntity<Void> deletePlayer(@PathVariable Long id) {
+    @GetMapping("/{id}/delete")
+    public Object deletePlayer(@PathVariable Long id) {
         playerService.deletePlayer(id);
-        return ResponseEntity.noContent().build();
+        return "redirect:/home";
+    }
+
+    // Player Profile details
+    @GetMapping("/{id}/profile")
+    public Object viewPlayer(@PathVariable Long id, Model model) {
+        Player player = playerService.getPlayerById(id);
+        model.addAttribute("Player", player);
+        
+        model.addAttribute("Title", "Player:");
+        return "playerhome";
     }
 
     /* 
