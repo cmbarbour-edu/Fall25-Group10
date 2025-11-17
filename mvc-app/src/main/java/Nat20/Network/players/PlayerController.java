@@ -15,14 +15,33 @@ import org.springframework.ui.Model;
 public class PlayerController {
     private final PlayerService playerService;
     
-    @PostMapping
-    public ResponseEntity<Player> createPlayer(@Valid @RequestBody Player player) {
-        return ResponseEntity.ok(playerService.createPlayer(player));
+     @GetMapping("/createForm")
+    public Object showCreatePlayerForm(Model model) {
+        Player player = new Player();
+        model.addAttribute("Player", player);
+        model.addAttribute("title", "Add a new player");
+        return "player-create";
     }
 
-    @PutMapping("/{id}")
-    public ResponseEntity<Player> updatePlayer(@PathVariable Long id, @Valid @RequestBody Player playerDetails) {
-        return ResponseEntity.ok(playerService.updatePlayer(id, playerDetails));
+    @PostMapping
+    public Object addPlayer(Player player) {
+        Player newPlayer = PlayerService.createPlayer(player);
+        return "redirect:/players/" + newPlayer.getPlayerByID() + "/home";
+    }
+
+    @GetMapping("/{id}/update")
+    public Object showUpdateForm(@PathVariable Long id, Model model) {
+        Player player = PlayerService.getPlayerById(id);
+        model.addAttribute("Player", player);
+        
+        model.addAttribute("title", "Update Player");
+        return "player-update";
+    }
+
+    @PostMapping("/{id}")
+    public Object updatePlayer(@PathVariable Long id, Player playerDetails) {
+        PlayerService.updatePlayer(id, playerDetails);
+        return "redirect:/players/" + id + "/profile";
     }
 
     @GetMapping("/{id}")
