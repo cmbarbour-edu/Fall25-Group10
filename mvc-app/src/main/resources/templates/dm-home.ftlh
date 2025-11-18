@@ -80,7 +80,7 @@
                 <div class="card h-50">
                     <img src="/placeholder2.png" class="card-img-top" alt="Create Campaign">
                     <div class="card-body">
-                        <a href="/high-fidelity-prototype/provider-prototype/createcampaign.html" class="btn btn-primary w-75">Create Campaign</a>
+                        <a href="/DMs/${DM.dmID}/campaigns/createForm" class="btn btn-primary w-75">Create Campaign</a>
                     </div>
                 </div>
                 <div class="card h-50">

@@ -10,6 +10,7 @@ import lombok.NoArgsConstructor;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import java.util.HashSet;
+import java.util.Objects;
 import java.util.Set;
 
 @Entity
@@ -54,6 +55,18 @@ public class Player {
 
     public Set<Campaign> getCampaigns() {
         return campaigns;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Player that)) return false;
+        return Objects.equals(playerID, that.playerID);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(playerID);
     }
 
     /*

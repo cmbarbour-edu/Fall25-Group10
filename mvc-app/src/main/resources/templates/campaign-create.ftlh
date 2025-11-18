@@ -22,27 +22,27 @@
     <!-- Navbar -->
     <nav class="navbar bg-dark boarder-bottom border-3 border-secondary" data-bs-theme="dark">
         <div class="container-fluid" position="relative">
-            <a class="navbar-brand" href="/high-fidelity-prototype/provider-prototype/dmhome.html">
-                <img src="/high-fidelity-prototype/images/d20OutlineWhite.PNG" alt="Nat20 Network" width="30" height="auto" class="d-inline-block align-text-top">
+            <a class="navbar-brand" href="/DMs/${DM.dmID}/home">
+                <img src="/d20OutlineWhite.PNG" alt="Nat20 Network" width="30" height="auto" class="d-inline-block align-text-top">
             Nat20 Network
             </a>
             <ul class="navbar-nav justify-content-center">
                 <ul class="nav justify-content-left">
                     <li class="nav-item align-middle">
-                        <a class="nav-link" href="/high-fidelity-prototype/tools.html">Tools</a>
+                        <a class="nav-link" href="">Tools</a>
                     </li>
                     <li class="nav-item align-middle">
-                        <a class="nav-link" href="campaignrequests.html">View Requests</a>
+                        <a class="nav-link" href="/DMs/${DM.dmID}/requests">View Requests</a>
                     </li>
                     <li class="nav-item dropdown-center">
                         <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                             Profile
                         </a>
                         <ul class="dropdown-menu dropdown-menu-end dropdown-menu-dark">
-                            <li><a class="dropdown-item" href="manageprofile.html">Manage profile</a></li>
-                            <li><a class="dropdown-item" href="dmhome.html">Home</a></li>
-                            <li><a class="dropdown-item" href="playerfeedback.html">See reviews</a></li>
-                            <li><a class="dropdown-item" href="/high-fidelity-prototype/home.html">Log Out</a></li>
+                            <li><a class="dropdown-item" href="/DMs/${DM.dmID}/profile">Manage profile</a></li>
+                            <li><a class="dropdown-item" href="/DMs/${DM.dmID}/home">Home</a></li>
+                            <li><a class="dropdown-item" href="/DMs/${DM.dmID}/reviews">See reviews</a></li>
+                            <li><a class="dropdown-item" href="/home">Log Out</a></li>
                         </ul>
                     </li>
                 </ul>
@@ -50,33 +50,40 @@
         </div>
     </nav>
     <!-- Create a campaign -->
-    <div class="mb-3 px-1">
-        <label for="Campaign name" class="form-label px-1">Title</label>
-        <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="i.e. Secrets of the Never-ending Gardens">
+    <div class="container justify-content-center" >
+        <form id="create-campaign" action="/DMs/${DM.dmID}/campaigns" method="post">
+            <div class="mb-3 px-1">
+                <label for="Campaign name" class="form-label px-1">Title</label>
+                <input type="text" class="form-control" id="title" name="title" placeholder="Secrets of the Never-ending Gardens" required>
+            </div>
+            <div class="mb-3 px-1">
+                <label for="Campaign edition" class="form-label px-1">Edition</label>
+                <select class="form-select" id="edition" name="edition"aria-label="Default campaign edition" aria-required="true" required>
+                    <option selected disabled>Please select edition</option>
+                    <option value="D&D 5e">D&D 5e</option>
+                </select>
+            </div>
+            <div class="mb-3 px-1">
+                <label for="Short campaign description" class="form-label px-1">Short Campaign Description</label>
+                <textarea class="form-control" id="shortDescription" name="shortDescription" rows="5" placeholder="Please describe the content of your campaign in a few short sentences. This is what players will look at to determine if they want to join your party, so make it interesting!" aria-required="true"></textarea>
+            </div>
+            <div class="mb-3 px-1">
+                <label for="Extended campaign description" class="form-label px-1">Extended Campaign Description</label>
+                <textarea class="form-control" id="description" name="description" rows="5" placeholder="Please describe your campaign in more detail, explaining the content and other important aspects of the campaign such as if it is roleplay or combat focused." aria-required="true" required></textarea>
+            </div>
+            <div class="mb-3 px-1">
+                <label for="Campaign access" class="form-label px-1">Privacy</label>
+                <select class="form-select" id="isPublic" name="isPublic"aria-label="Default privacy" aria-required="true">
+                    <option selected disabled>Please select privacy options</option>
+                    <option value="true">Public</option>
+                    <option value="false">Private</option>
+                </select>
+            </div>
+            <div class="container py-4">
+                <button type="submit" class="btn btn-primary">Submit</button>
+                <a href= "/DMs/${DM.dmID}/home" class="btn btn-outline-danger">Cancel</a>
+            </div>
+        </form>
     </div>
-    <div class="mb-3 px-1">
-        <label for="Campaign edition" class="form-label px-1">Edition</label>
-        <select class="form-select" aria-label="Default campaign edition">
-            <option selected>Please select edition</option>
-            <option value="1">D&D 5e</option>
-        </select>
-    </div>
-    <div class="mb-3 px-1">
-        <label for="Short campaign description" class="form-label px-1">Short Campaign Description</label>
-        <textarea class="form-control" id="contentDescription" rows="5" placeholder="Please describe the content of your campaign in a few short sentences. This is what players will look at to determine if they want to join your party, so make it interesting!"></textarea>
-    </div>
-    <div class="mb-3 px-1">
-        <label for="Extended campaign description" class="form-label px-1">Extended Campaign Description</label>
-        <textarea class="form-control" id="contentDescription" rows="5" placeholder="Please describe your campaign in more detail, explaining the content and other important aspects of the campaign such as if it is roleplay or combat focused."></textarea>
-    </div>
-    <div class="mb-3 px-1">
-        <label for="Campaign access" class="form-label px-1">Privacy</label>
-        <select class="form-select" aria-label="Default privacy">
-            <option selected>Please select privacy options</option>
-            <option value="1">Public</option>
-            <option value="2">Private</option>
-        </select>
-    </div>
-    <a class="btn btn-primary mx-2" type="submit">Submit</a>
 </body>
 </html>

@@ -6,16 +6,19 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import Nat20.Network.dungeonMaster.DM;
+
 @Service
 @RequiredArgsConstructor
 @Transactional
 public class CampaignService {
 	private final CampaignRepository campaignRepository;
 
-    public Campaign createCampaign(Campaign campaign) {
+    public Campaign createCampaign(Campaign campaign, DM dm) {
         if (campaignRepository.existsByTitle(campaign.getTitle())) {
             throw new IllegalStateException("A campaign with this title already exists.");
         }
+        campaign.setDm(dm);
         return campaignRepository.save(campaign);
     }
 

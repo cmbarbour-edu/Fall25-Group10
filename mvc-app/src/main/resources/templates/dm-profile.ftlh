@@ -69,7 +69,7 @@
                         <h5 class="card-title">${campaign.title}</h5>
                         <h6 class="card-subtitle mb-2 text-body-secondary">${campaign.edition}</h6>
                         <p class="card-text">${campaign.shortDescription}</p>
-                        <a href="/campaigns/${campaign.campaignID}" class="card-link">Details</a>
+                        <a href="/DMs/${DM.dmID}/campaigns/${campaign.campaignID}" class="card-link">Details</a>
                     </div>
                 </#list>
             </div>

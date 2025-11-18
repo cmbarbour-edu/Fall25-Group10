@@ -23,27 +23,27 @@
     <!-- Navbar -->
     <nav class="navbar bg-dark boarder-bottom border-3 border-secondary" data-bs-theme="dark">
         <div class="container-fluid" position="relative">
-            <a class="navbar-brand" href="/high-fidelity-prototype/provider-prototype/dmhome.html">
-                <img src="/high-fidelity-prototype/images/d20OutlineWhite.PNG" alt="Nat20 Network" width="30" height="auto" class="d-inline-block align-text-top">
+            <a class="navbar-brand" href="/DMs/${DM.dmID}/home">
+                <img src="/d20OutlineWhite.PNG" alt="Nat20 Network" width="30" height="auto" class="d-inline-block align-text-top">
             Nat20 Network
             </a>
             <ul class="navbar-nav justify-content-center">
                 <ul class="nav justify-content-left">
                     <li class="nav-item align-middle">
-                        <a class="nav-link" href="/high-fidelity-prototype/tools.html">Tools</a>
+                        <a class="nav-link" href="">Tools</a>
                     </li>
                     <li class="nav-item align-middle">
-                        <a class="nav-link" href="campaignrequests.html">View Requests</a>
+                        <a class="nav-link" href="/DMs/${DM.dmID}/requests">View Requests</a>
                     </li>
                     <li class="nav-item dropdown-center">
                         <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                             Profile
                         </a>
                         <ul class="dropdown-menu dropdown-menu-end dropdown-menu-dark">
-                            <li><a class="dropdown-item" href="manageprofile.html">Manage profile</a></li>
-                            <li><a class="dropdown-item" href="dmhome.html">Home</a></li>
-                            <li><a class="dropdown-item" href="playerfeedback.html">See reviews</a></li>
-                            <li><a class="dropdown-item" href="/high-fidelity-prototype/home.html">Log Out</a></li>
+                            <li><a class="dropdown-item" href="/DMs/${DM.dmID}/profile">Manage profile</a></li>
+                            <li><a class="dropdown-item" href="/DMs/${DM.dmID}/home">Home</a></li>
+                            <li><a class="dropdown-item" href="/DMs/${DM.dmID}/reviews">See reviews</a></li>
+                            <li><a class="dropdown-item" href="/home">Log Out</a></li>
                         </ul>
                     </li>
                 </ul>
@@ -55,23 +55,30 @@
         <div class="row">
             <div class="col mx-auto">
                 <div class="card px-1">
-                    <h5 class="card-title fw-bold fs-1">Delve into the Black Abyss</h5>
-                    <h6 class="card-subtitle text-body-secondary">Run by: @hollow.wood.13</h6>
+                    <h5 class="card-title fw-bold fs-1">${campaign.title}</h5>
+                    <h6 class="card-subtitle text-body-secondary">Run by: @${DM.username}</h6>
                     <div class="card-body py-1">
                         <p class="fw-bold fs-5">Short description:</p>
-                        <p class="card-text text-body-secondary">A group of pirates stole the soon-to-be princess. Does the party have what it takes to save her?</p>
-                        <a class=" btn btn-primary">Edit</a>
+                        <p class="card-text text-body-secondary">${campaign.shortDescription}</p>
                         <p class="fw-bold fs-5 pt-2">Extended description:</p>
-                        <p class="card-text text-body-secondary">The soon-to-be princess of an elven kingdom was recently kidnapped by a group of men claiming to be working for a pirate lord who goes by "The Dread Pirate Aered." Upon the king's request, a group of adventurers was assembled to try to save the princess. It seems that the king may be hiding something from the aventurers... Do you wish to join the party and figure out who can be trusted?</p>
-                        <a class=" btn btn-primary">Edit</a>
+                        <p class="card-text text-body-secondary">${campaign.description}</p>
                         <p class="fw-bold fs-5 pt-2">Edition:</p>
-                        <p class="card-text text-body-secondary">D&D 5e</p>
-                        <a class="btn btn-primary">Change</a>
+                        <p class="card-text text-body-secondary">${campaign.edition}</p>
                         <p class="fw-bold fs-5 pt-2">Privacy:</p>
-                        <p class="card-text text-body-secondary">Public</p>
-                        <a class="btn btn-primary">Change</a>
+                        <#if campaign.isPublic>
+                            <p class="card-text text-body-secondary">Public</p>
+                        <#else>
+                            <p class="card-text text-body-secondary">Private</p>
+                        </#if>
+                        <a class="btn btn-primary" href="/DMs/${DM.dmID}/campaigns/${campaign.campaignID}/updateForm">Edit</a>
                         <h5 class="fw-bold fs-5 pt-2">Players</h5>
-                        <p class="card-text">@purplelinebear <a class="btn btn-primary">Remove Player</a></p>
+                        <#list playerList as player>
+                            <div class="card py-3 px-2">
+                                <h5 class="card-title">@${player.name}</h5>
+                                <!--Make button smaller and show beside player username-->
+                                <a class="btn btn-danger" href="/DMs/${DM.dmID}/campaigns/${campaign.campaignID}/removePlayer/${player.playerID}">Remove Player</a>
+                            </div>
+                        </#list>
                     </div>
                 </div>
             </div>

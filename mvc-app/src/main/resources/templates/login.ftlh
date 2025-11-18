@@ -39,20 +39,23 @@
             </ul>
         </div>
     </nav>
-    <!-- Create an account -->
-    <div class="container justify-content-center" >
-        <form id="create-dm" action="/DMs" method="post">
-            <p class="fw-bold fs-3">Username </p>
-            <input type="text" id="username" name="username" placeholder="Username" required/>
-            <p class="fw-bold fs-3">Email </p>
-            <input type="email" id="email" name="email" placeholder="Email" required/>
-            <p class="fw-bold fs-3">Password </p>
-            <input type="text" id="password" name="password" placeholder="Password" required/> </br>
-            <div class="container py-4">
-                <button type="submit" class="btn btn-primary">Submit</button>
-                <a href= "/home" class="btn btn-outline-danger">Cancel</a>
-            </div>
-        </form>
-    </div>
+    <!-- Log In -->
+     <form>
+        <div class="mb-3">
+            <label for="exampleInputEmail1" class="form-label">Email address</label>
+            <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Nat20Network@gmail.com" aria-describedby="emailHelp">
+            <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
+        </div>
+        <div class="mb-3">
+            <label for="exampleInputPassword1" class="form-label">Password</label>
+            <input type="password" class="form-control" id="exampleInputPassword1">
+        </div>
+        <div class="d-grid gap-2 col-4 justify-content-center mx-auto">
+            <a href="/high-fidelity-prototype/customer-prototype/playerhome.html" class="btn btn-primary" role="button">Sign in as player</a>
+            <a href="/high-fidelity-prototype/provider-prototype/dmhome.html" class="btn btn-primary" role="button">Sign in as DM</a>
+            <button type="submit" class="btn btn-primary" href="">Sign in as system admin</button>
+        </div>
+        
+    </form>
 </body>
 </html>

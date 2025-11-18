@@ -39,20 +39,14 @@
             </ul>
         </div>
     </nav>
-    <!-- Create an account -->
-    <div class="container justify-content-center" >
-        <form id="create-dm" action="/DMs" method="post">
-            <p class="fw-bold fs-3">Username </p>
-            <input type="text" id="username" name="username" placeholder="Username" required/>
-            <p class="fw-bold fs-3">Email </p>
-            <input type="email" id="email" name="email" placeholder="Email" required/>
-            <p class="fw-bold fs-3">Password </p>
-            <input type="text" id="password" name="password" placeholder="Password" required/> </br>
-            <div class="container py-4">
-                <button type="submit" class="btn btn-primary">Submit</button>
-                <a href= "/home" class="btn btn-outline-danger">Cancel</a>
-            </div>
-        </form>
-    </div>
+    <h1>
+        Hello! Welcome to the Nat20 Network!
+    </h1>
+    <h3>
+        Don't have an account? Sign up now!
+    </h3>
+    <h4>
+        Already have an account? Login using the button prompt above!
+    </h4>
 </body>
 </html>

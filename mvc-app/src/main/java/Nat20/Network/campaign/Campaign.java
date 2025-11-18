@@ -1,7 +1,6 @@
 package Nat20.Network.campaign;
 
 import jakarta.persistence.*;
-import jakarta.validation.constraints.NotBlank;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
@@ -11,6 +10,7 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import Nat20.Network.dungeonMaster.*;
 import Nat20.Network.players.*;
 import java.util.HashSet;
+import java.util.Objects;
 import java.util.Set;
 
 @Data
@@ -22,11 +22,9 @@ public class Campaign {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long campaignID;
 
-    @NotBlank
     @Column(nullable = false)
     private String title;
 
-    @NotBlank
     @Column(nullable = false, length = 5000)
     private String description;
 
@@ -52,6 +50,18 @@ public class Campaign {
         inverseJoinColumns = @JoinColumn(name = "player_id", referencedColumnName = "playerID")
     )
     private Set<Player> players = new HashSet<>();
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof Campaign that)) return false;
+        return Objects.equals(campaignID, that.campaignID);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(campaignID);
+    }
 
     /*
     public void addPlayer(Player p) {
