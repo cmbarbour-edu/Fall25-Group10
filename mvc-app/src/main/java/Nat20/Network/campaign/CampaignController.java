@@ -75,8 +75,14 @@ public class CampaignController {
 
     @GetMapping("/DMs/{dmID}/campaigns/{campaignID}/delete")
     public Object deleteCampaign(@PathVariable Long dmID, @PathVariable Long campaignID) {
-        campaignService.deleteCampaign(campaignID);
-        return "redirect:/DMs/" + dmID + "/home";
+        DM dm = dmService.getDMById(dmID);
+        Campaign campaign = campaignService.getCampaignById(campaignID);
+        if (dm == campaign.getDm()) {
+            campaignService.deleteCampaign(campaignID);
+            return "redirect:/DMs/" + dmID + "/home";
+        }
+        else return "redirect:/DMs/" + dmID + "/campaigns";
+        
     }
 
     @GetMapping("/DMs/{dmID}/campaigns")
