@@ -52,7 +52,7 @@
             </ul>
         </div>
     </nav>
-    <!-- Profile Info -->
+    <!-- Update Form -->
     <div class="container py-4">
         <p class="fw-bold fs-1">Welcome, ${DM.username}!</p>
         <form id="update-dm" action="/DMs/${DM.dmID}" method="post">
@@ -67,23 +67,6 @@
                 <a href= "/DMs/${DM.dmID}/profile" class="btn btn-outline-danger">Cancel</a>
             </div>
         </form>
-        <p class="fw-bold fs-3">Campaigns </p>
-        <div class="row row-cols-1">
-            <div class="col col-sm">
-                <#list campaignList as campaign>
-                    <div class="card py-3 px-2">
-                        <h5 class="card-title">${campaign.title}</h5>
-                        <h6 class="card-subtitle mb-2 text-body-secondary">${campaign.edition}</h6>
-                        <p class="card-text">${campaign.shortDescription}</p>
-                        <a href="/campaigns/${campaign.campaignID}" class="card-link">Details</a>
-                    </div>
-                </#list>
-            </div>
-        </div>
-        <div class="fs-4 link py-3">
-            <a href="playerfeedback.html" class="fs-4 link mx">View player feedback<br></a>
-        </div>
-        <a href="/DMs/${DM.dmID}/delete" class="btn btn-danger">Delete account</a>
     </div>
 </body>
 </html>

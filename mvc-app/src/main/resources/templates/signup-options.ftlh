@@ -39,14 +39,12 @@
             </ul>
         </div>
     </nav>
-    <h1>
-        Hello! Welcome to the Nat20 Network!
-    </h1>
-    <h3>
-        Don't have an account? Sign up now!
-    </h3>
-    <h4>
-        Already have an account? Login using the button prompt above!
-    </h4>
+    <!-- 2 Signup buttons that redirect to player or DM account creation-->
+    <div class="container text-center py-2">
+        <div class="d-grid gap-2">
+            <a href="/DMs/createForm" class="btn btn-primary btn-lg">Sign up as a DM</a>
+            <a href="#" class="btn btn-primary btn-lg">Sign up as a player</a>
+        </div>
+    </div>
 </body>
 </html>

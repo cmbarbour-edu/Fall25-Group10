@@ -3,7 +3,6 @@ package Nat20.Network;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
@@ -15,7 +14,12 @@ public class AppController {
     }
 
     @GetMapping("/home")
-    public Object getDMsByID(@PathVariable Long dmID, Model model) {
+    public Object showHome(Model model) {
         return "static-home";
+    }
+
+    @GetMapping("/signup")
+    public Object showSignupOptions(Model model) {
+        return "signup-options";
     }
 }

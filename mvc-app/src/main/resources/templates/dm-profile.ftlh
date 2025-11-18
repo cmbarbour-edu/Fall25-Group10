@@ -57,7 +57,7 @@
         <p class="fw-bold fs-3">Email </p>
         <p>${DM.email}</p>
         <p class="fw-bold fs-3">Password </p>
-        <p>${DM.password}</p>
+        <p>****************</p>
         <div class="container py-4">
             <a href="/DMs/${DM.dmID}/update" class="btn btn-primary">Edit</a>
         </div>
