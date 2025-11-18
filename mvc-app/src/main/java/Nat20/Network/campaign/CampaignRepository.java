@@ -16,4 +16,7 @@ public interface CampaignRepository extends JpaRepository<Campaign, Long>{
     List<Campaign> findByEdition(String edition);
 
     boolean existsByTitle(String title);
+
+    @Query(value = "select * from campaigns c where dm_id = ?1", nativeQuery = true)
+    List<Campaign> findByDm(Long dmID);
 }

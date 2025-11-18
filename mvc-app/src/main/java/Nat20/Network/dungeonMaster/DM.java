@@ -5,8 +5,6 @@ import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
@@ -37,8 +35,7 @@ public class DM {
     @Column(nullable = false)
     private String password;
 
-    @OneToMany(mappedBy = "dm_id", cascade = CascadeType.ALL)
-    @JsonIgnoreProperties("dm_id")
+    @OneToMany(mappedBy = "dm", cascade = CascadeType.ALL)
     private List<Campaign> campaigns = new ArrayList<>();
 
     @OneToMany(mappedBy = "dm", cascade = CascadeType.ALL, orphanRemoval = true)

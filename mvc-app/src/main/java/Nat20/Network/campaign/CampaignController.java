@@ -1,44 +1,97 @@
 package Nat20.Network.campaign;
 
-import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.PutMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import jakarta.validation.Valid;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 
-@RestController
-@RequestMapping("/api/campaigns")
+import Nat20.Network.dungeonMaster.DM;
+import Nat20.Network.dungeonMaster.DMService;
+
+@Controller
+@RequestMapping
 @RequiredArgsConstructor
 public class CampaignController {
     private final CampaignService campaignService;
+    private final DMService dmService;
     
-    @PostMapping
-    public ResponseEntity<Campaign> createCampaign(@Valid @RequestBody Campaign campaign) {
-        return ResponseEntity.ok(campaignService.createCampaign(campaign));
+    // Campaign forms
+    @GetMapping("/campaigns")
+    public Object getAllCampaigns(Model model) {
+        model.addAttribute("campaignList", campaignService.getAllCampaigns());
+        model.addAttribute("title", "Campaigns:");
+        return "campaign-list";
     }
 
-    @PutMapping("/{id}")
-    public ResponseEntity<Campaign> updateCampaign(@PathVariable Long id, @Valid @RequestBody Campaign campaignDetails) {
-        return ResponseEntity.ok(campaignService.updateCampaign(id, campaignDetails));
+    @GetMapping("/DMs/{dmID}/campaigns/createForm")
+    public Object showCreateCampaignForm(@PathVariable Long dmID, Model model) {
+        DM dm = dmService.getDMById(dmID);
+        Campaign campaign = new Campaign();
+        model.addAttribute("campaign", campaign);
+        model.addAttribute("DM", dm);
+        model.addAttribute("title", "Add a new campaign");
+        return "campaign-create";
     }
 
-    @GetMapping
-    public ResponseEntity<Object> getAllCampaigns() {
-        return ResponseEntity.ok(campaignService.getAllCampaigns());
+    @PostMapping("/DMs/{dmID}/campaigns")
+    public Object addCampaign(@PathVariable Long dmID, Campaign campaign) {
+        DM dm = dmService.getDMById(dmID);
+        Campaign newCampaign = campaignService.createCampaign(campaign, dm);
+        newCampaign.setDm(dmService.getDMById(dmID));
+        return "redirect:/DMs/" + dmID + "/campaigns/" + newCampaign.getCampaignID(); 
     }
 
-    @GetMapping("/{id}")
-    public ResponseEntity<Campaign> getCampaign(@PathVariable Long id) {
-        return ResponseEntity.ok(campaignService.getCampaignById(id));
+    @GetMapping("/DMs/{dmID}/campaigns/{campaignID}/updateForm")
+    public Object showUpdateForm(@PathVariable Long dmID, @PathVariable Long campaignID, Model model) {
+        Campaign campaign = campaignService.getCampaignById(campaignID);
+        DM dm = dmService.getDMById(dmID);
+        if (dm == campaign.getDm()) {
+            model.addAttribute("campaign", campaign);
+            model.addAttribute("DM", dm);
+            model.addAttribute("title", "Update Campaign");
+            return "campaign-update";
+        }
+        else return "redirect:/DMs/" + dmID + "/home";
+        
     }
 
-    @DeleteMapping("/{id}")
-    public ResponseEntity<Void> deleteCampaign(@PathVariable Long id) {
-        campaignService.deleteCampaign(id);
-        return ResponseEntity.noContent().build();
+    @PostMapping("/DMs/{dmID}/campaigns/{campaignID}/update")
+    public Object updateCampaign(@PathVariable Long dmID, @PathVariable Long campaignID, Campaign campaignDetails) {
+        campaignService.updateCampaign(campaignID, campaignDetails);
+        return "redirect:/DMs/" + dmID + "/campaigns/" + campaignID;
     }
 
+    @GetMapping("/DMs/{dmID}/campaigns/{campaignID}")
+    public Object getCampaignByIDAndDm(@PathVariable Long dmID, @PathVariable Long campaignID, Model model) {
+        DM dm = dmService.getDMById(dmID);
+        Campaign campaign = campaignService.getCampaignById(campaignID);
+        model.addAttribute("campaign", campaign);
+        model.addAttribute("DM", dm);
+        model.addAttribute("playerList", campaign.getPlayers());
+        model.addAttribute("title", campaignService.getCampaignById(campaignID).getTitle());
+        return "dm-campaign-details";
+    }
+
+    @GetMapping("/DMs/{dmID}/campaigns/{campaignID}/delete")
+    public Object deleteCampaign(@PathVariable Long dmID, @PathVariable Long campaignID) {
+        DM dm = dmService.getDMById(dmID);
+        Campaign campaign = campaignService.getCampaignById(campaignID);
+        if (dm == campaign.getDm()) {
+            campaignService.deleteCampaign(campaignID);
+            return "redirect:/DMs/" + dmID + "/home";
+        }
+        else return "redirect:/DMs/" + dmID + "/campaigns";
+        
+    }
+
+    @GetMapping("/DMs/{dmID}/campaigns")
+    public Object getCampaignsByDm(@PathVariable Long dmID, Model model) {
+        DM dm = dmService.getDMById(dmID);
+        model.addAttribute("DM", dm);
+        model.addAttribute("campaignList", dm.getCampaigns());
+        model.addAttribute("title", "Campaigns by @${DM.username}");
+        return "dm-campaign-list";
+    }
 
 }
