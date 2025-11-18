@@ -58,23 +58,23 @@
             </div>
             <div class="mb-3 px-1">
                 <label for="Campaign edition" class="form-label px-1">Edition</label>
-                <select class="form-select" id="edition" name="edition"aria-label="Default campaign edition" aria-required="true" required>
-                    <option selected disabled>Please select edition</option>
+                <select class="form-select" id="edition" name="edition"aria-label="Default campaign edition" required>
+                    <option value="" selected disabled>Please select edition</option>
                     <option value="D&D 5e">D&D 5e</option>
                 </select>
             </div>
             <div class="mb-3 px-1">
                 <label for="Short campaign description" class="form-label px-1">Short Campaign Description</label>
-                <textarea class="form-control" id="shortDescription" name="shortDescription" rows="5" placeholder="Please describe the content of your campaign in a few short sentences. This is what players will look at to determine if they want to join your party, so make it interesting!" aria-required="true"></textarea>
+                <textarea class="form-control" id="shortDescription" name="shortDescription" rows="5" placeholder="Please describe the content of your campaign in a few short sentences. This is what players will look at to determine if they want to join your party, so make it interesting!" required></textarea>
             </div>
             <div class="mb-3 px-1">
                 <label for="Extended campaign description" class="form-label px-1">Extended Campaign Description</label>
-                <textarea class="form-control" id="description" name="description" rows="5" placeholder="Please describe your campaign in more detail, explaining the content and other important aspects of the campaign such as if it is roleplay or combat focused." aria-required="true" required></textarea>
+                <textarea class="form-control" id="description" name="description" rows="5" placeholder="Please describe your campaign in more detail, explaining the content and other important aspects of the campaign such as if it is roleplay or combat focused." required></textarea>
             </div>
             <div class="mb-3 px-1">
                 <label for="Campaign access" class="form-label px-1">Privacy</label>
-                <select class="form-select" id="isPublic" name="isPublic"aria-label="Default privacy" aria-required="true">
-                    <option selected disabled>Please select privacy options</option>
+                <select class="form-select" id="isPublic" name="isPublic"aria-label="Default privacy" required>
+                    <option value="" selected disabled>Please select privacy options</option>
                     <option value="true">Public</option>
                     <option value="false">Private</option>
                 </select>

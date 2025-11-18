@@ -66,7 +66,7 @@
                 <div class="card h-50">
                     <img src="/placeholder2.png" class="card-img-top" alt="Manage Campaigns">
                     <div class="card-body text-center">
-                        <a href="/high-fidelity-prototype/provider-prototype/managecampaigns.html" class="btn btn-primary w-75">Manage Campaigns</a>
+                        <a href="/DMs/${DM.dmID}/campaigns" class="btn btn-primary w-75">Manage Campaigns</a>
                     </div>
                 </div>
                 <div class="card h-50">

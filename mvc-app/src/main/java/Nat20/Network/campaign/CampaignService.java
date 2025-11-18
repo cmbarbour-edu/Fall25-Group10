@@ -30,9 +30,11 @@ public class CampaignService {
                 campaignRepository.existsByTitle(campaignDetails.getTitle())) {
             throw new IllegalStateException("A campaign with this title already exists.");
         }
+        existingCampaign.setTitle(campaignDetails.getTitle());
+        existingCampaign.setEdition(campaignDetails.getEdition());
         existingCampaign.setDescription(campaignDetails.getDescription());
         existingCampaign.setShortDescription(campaignDetails.getShortDescription());
-        existingCampaign.setDescription(campaignDetails.getDescription());
+        existingCampaign.setIsPublic(campaignDetails.getIsPublic());
         return campaignRepository.save(existingCampaign);
     }
 

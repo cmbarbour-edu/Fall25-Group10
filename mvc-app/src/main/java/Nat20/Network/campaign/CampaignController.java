@@ -79,4 +79,13 @@ public class CampaignController {
         return "redirect:/DMs/" + dmID + "/home";
     }
 
+    @GetMapping("/DMs/{dmID}/campaigns")
+    public Object getCampaignsByDm(@PathVariable Long dmID, Model model) {
+        DM dm = dmService.getDMById(dmID);
+        model.addAttribute("DM", dm);
+        model.addAttribute("campaignList", dm.getCampaigns());
+        model.addAttribute("title", "Campaigns by @${DM.username}");
+        return "dm-campaign-list";
+    }
+
 }
