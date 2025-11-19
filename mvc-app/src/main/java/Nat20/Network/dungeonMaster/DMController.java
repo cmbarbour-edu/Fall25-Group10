@@ -1,36 +1,75 @@
 package Nat20.Network.dungeonMaster;
 
-import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
-import org.springframework.http.ResponseEntity;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
-@RestController
-@RequestMapping("/api/DMs")
+@Controller
+@RequestMapping("/DMs")
 @RequiredArgsConstructor
 public class DMController {
     private final DMService dmService;
+    
+    @GetMapping("/createForm")
+    public Object showCreateDmForm(Model model) {
+        DM dm = new DM();
+        model.addAttribute("DM", dm);
+        model.addAttribute("title", "Add a new DM");
+        return "dm-create";
+    }
 
     @PostMapping
-    public ResponseEntity<DM> createDm(@Valid @RequestBody DM dm) {
-        return ResponseEntity.ok(dmService.createDM(dm));
+    public Object addDm(DM dm) {
+        DM newDm = dmService.createDM(dm);
+        return "redirect:/DMs/" + newDm.getDmID() + "/home";
     }
 
-    @PutMapping("/{id}")
-    public ResponseEntity<DM> updateDm(@PathVariable Long id, @Valid @RequestBody DM dmDetails) {
-        return ResponseEntity.ok(dmService.updateDM(id, dmDetails));
+    @GetMapping("/{dmID}/update")
+    public Object showUpdateForm(@PathVariable Long dmID, Model model) {
+        DM dm = dmService.getDMById(dmID);
+        model.addAttribute("DM", dm);
+        model.addAttribute("campaignList", dm.getCampaigns());
+        model.addAttribute("title", "Update DM");
+        return "dm-update";
     }
 
-    @GetMapping("/{id}")
-    public ResponseEntity<DM> getDm(@PathVariable Long id) {
-        return ResponseEntity.ok(dmService.getDMById(id));
+    @PostMapping("/{dmID}")
+    public Object updateDm(@PathVariable Long dmID, DM dmDetails) {
+        dmService.updateDM(dmID, dmDetails);
+        return "redirect:/DMs/" + dmID + "/profile";
     }
 
-    @DeleteMapping("/{id}")
-    public ResponseEntity<Void> deleteDm(@PathVariable Long id) {
-        dmService.deleteDM(id);
-        return ResponseEntity.noContent().build();
+    @GetMapping("/{dmID}/home")
+    public Object getDMsByID(@PathVariable Long dmID, Model model) {
+        DM dm = dmService.getDMById(dmID);
+        model.addAttribute("DM", dm);
+        model.addAttribute("title", "DM:");
+        return "dm-home";
     }
 
-    // Need to have method to review all player statistics (both the statistics from the player and the DM's average ranking)
+    @GetMapping("/{dmID}/delete")
+    public Object deleteDm(@PathVariable Long dmID) {
+        dmService.deleteDM(dmID);
+        return "redirect:/home";
+    }
+
+    // DM Profile details
+    @GetMapping("/{dmID}/profile")
+    public Object viewDm(@PathVariable Long dmID, Model model) {
+        DM dm = dmService.getDMById(dmID);
+        model.addAttribute("DM", dm);
+        model.addAttribute("campaignList", dm.getCampaigns());
+        model.addAttribute("Title", "DM:");
+        return "dm-profile";
+    }
+    /*
+    // DM Requests
+    @GetMapping("/${dmID}/requests")
+    public Object viewRequests(@PathVariable Long dmID, Model model) {
+        // get requests by dm ID?
+
+        return "dm-requests";
+    }
+        */
 }

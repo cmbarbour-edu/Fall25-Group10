@@ -2,8 +2,11 @@ package Nat20.Network.campaign;
 
 import jakarta.persistence.EntityNotFoundException;
 import lombok.RequiredArgsConstructor;
+
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+
+import Nat20.Network.dungeonMaster.DM;
 
 @Service
 @RequiredArgsConstructor
@@ -11,10 +14,11 @@ import org.springframework.transaction.annotation.Transactional;
 public class CampaignService {
 	private final CampaignRepository campaignRepository;
 
-    public Campaign createCampaign(Campaign campaign) {
+    public Campaign createCampaign(Campaign campaign, DM dm) {
         if (campaignRepository.existsByTitle(campaign.getTitle())) {
             throw new IllegalStateException("A campaign with this title already exists.");
         }
+        campaign.setDm(dm);
         return campaignRepository.save(campaign);
     }
 
@@ -26,9 +30,11 @@ public class CampaignService {
                 campaignRepository.existsByTitle(campaignDetails.getTitle())) {
             throw new IllegalStateException("A campaign with this title already exists.");
         }
+        existingCampaign.setTitle(campaignDetails.getTitle());
+        existingCampaign.setEdition(campaignDetails.getEdition());
         existingCampaign.setDescription(campaignDetails.getDescription());
         existingCampaign.setShortDescription(campaignDetails.getShortDescription());
-        existingCampaign.setDescription(campaignDetails.getDescription());
+        existingCampaign.setIsPublic(campaignDetails.getIsPublic());
         return campaignRepository.save(existingCampaign);
     }
 

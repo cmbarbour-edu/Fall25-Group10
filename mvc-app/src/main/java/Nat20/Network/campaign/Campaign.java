@@ -1,7 +1,6 @@
 package Nat20.Network.campaign;
 
 import jakarta.persistence.*;
-import jakarta.validation.constraints.NotBlank;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
@@ -23,11 +22,9 @@ public class Campaign {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long campaignID;
 
-    @NotBlank
     @Column(nullable = false)
     private String title;
 
-    @NotBlank
     @Column(nullable = false, length = 5000)
     private String description;
 
@@ -43,7 +40,7 @@ public class Campaign {
     @ManyToOne
     @JoinColumn(name = "dm_id", nullable = false)
     @JsonIgnoreProperties({"username", "email", "password", "campaigns", "reviews"})
-    private DM dm_id;
+    private DM dm;
 
     @ManyToMany(cascade = CascadeType.PERSIST)
     @JsonIgnore
