@@ -27,7 +27,7 @@
                     </li>
                     
                     <li class="nav-item">
-                        <a class="nav-link" href="campaignlist.html">View Campaigns</a>
+                        <a class="nav-link" href="/players/${player.playerID}/playercampaigns">View Campaigns</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="/high-fidelity-prototype/home.html">Log Out</a>

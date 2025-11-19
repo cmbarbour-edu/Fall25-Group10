@@ -43,7 +43,7 @@
     <div class="container justify-content-center" >
         <form id="create-player" action="/players" method="post">
             <p class="fw-bold fs-3">Username </p>
-            <input type="text" id="username" name="username" placeholder="Username" required/>
+            <input type="text" id="name" name="name" placeholder="Username" required/>
             <p class="fw-bold fs-3">Email </p>
             <input type="email" id="email" name="email" placeholder="Email" required/>
             <p class="fw-bold fs-3">Password </p>

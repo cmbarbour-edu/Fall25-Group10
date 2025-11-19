@@ -1,11 +1,10 @@
 package Nat20.Network.players;
 
-import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
+import org.springframework.stereotype.Controller;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.List;
 import org.springframework.ui.Model;
 
 @Controller
@@ -26,13 +25,13 @@ public class PlayerController {
     @PostMapping
     public Object addPlayer(Player player) {
         Player newPlayer = playerService.createPlayer(player);
-        return "redirect:/players/" + newPlayer.getPlayerByID() + "/home";
+        return "redirect:/players/" + newPlayer.getPlayerID() + "/home";
     }
 
     @GetMapping("/{id}/update")
     public Object showUpdateForm(@PathVariable Long id, Model model) {
         Player player = playerService.getPlayerById(id);
-        model.addAttribute("Player", player);
+        model.addAttribute("player", player);
         
         model.addAttribute("title", "Update Player");
         return "player-update";
@@ -40,7 +39,7 @@ public class PlayerController {
 
     @PostMapping("/{id}")
     public Object updatePlayer(@PathVariable Long id, Player playerDetails) {
-        layerService.updatePlayer(id, playerDetails);
+        playerService.updatePlayer(id, playerDetails);
         return "redirect:/players/" + id + "/profile";
     }
 
