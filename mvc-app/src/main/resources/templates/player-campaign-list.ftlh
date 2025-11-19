@@ -22,7 +22,7 @@
     <!-- Navbar -->
     <nav class="navbar bg-dark boarder-bottom border-3 border-secondary" data-bs-theme="dark">
         <div class="container-fluid" position="relative">
-            <a class="navbar-brand" href="/DMs/${DM.dmID}/home">
+            <a class="navbar-brand" href="/players/${player.playerID}/home">
                 <img src="/d20OutlineWhite.PNG" alt="Nat20 Network" width="30" height="auto" class="d-inline-block align-text-top">
             Nat20 Network
             </a>
@@ -39,9 +39,9 @@
                             Profile
                         </a>
                         <ul class="dropdown-menu dropdown-menu-end dropdown-menu-dark">
-                            <li><a class="dropdown-item" href="/players/${DM.dmID}/profile">Manage profile</a></li>
-                            <li><a class="dropdown-item" href="/DMs/${DM.dmID}/home">Home</a></li>
-                            <li><a class="dropdown-item" href="/DMs/${DM.dmID}/reviews">See reviews</a></li>
+                            <li><a class="dropdown-item" href="/players/${player.playerID}/profile">Manage profile</a></li>
+                            <li><a class="dropdown-item" href="/players/${player.playerID}/home">Home</a></li>
+                            <li><a class="dropdown-item" href="/players/${player.playerID}/reviews">Write reviews</a></li>
                             <li><a class="dropdown-item" href="/home">Log Out</a></li>
                         </ul>
                     </li>
@@ -64,7 +64,7 @@
                         <#else>
                             <p class="card-text text-body-secondary">Private</p>
                         </#if>
-                        <a href="/DMs/${DM.dmID}/campaigns/${campaign.campaignID}" class="card-link">Details</a>
+                        <a href="/players/${player.playerID}/campaigns/${campaign.campaignID}" class="card-link">Details</a>
                     </div>
                 </#list>
             </div>
