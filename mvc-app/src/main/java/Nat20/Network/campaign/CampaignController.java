@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.*;
 import Nat20.Network.dungeonMaster.DM;
 import Nat20.Network.dungeonMaster.DMService;
 import Nat20.Network.players.PlayerService;
+import Nat20.Network.players.*;
 
 @Controller
 @RequestMapping
@@ -25,7 +26,19 @@ public class CampaignController {
         model.addAttribute("campaignList", campaignService.getAllCampaigns());
         model.addAttribute("title", "Campaigns:");
         model.addAttribute("player", player);
-        return "campaign-list";
+        return "player-campaign-list";
+    }
+
+    @GetMapping("/players/{playerID}/campaigns/{campaignID}")
+    public Object getCampaignByIDAndPlayer(@PathVariable Long playerID, @PathVariable Long campaignID, Model model) {
+        Player player = playerService.getPlayerById(playerID);
+        Campaign campaign = campaignService.getCampaignById(campaignID);
+        model.addAttribute("campaign", campaign);
+        model.addAttribute("player", player);
+        model.addAttribute("DM", campaign.getDm());
+        model.addAttribute("playerList", campaign.getPlayers());
+        model.addAttribute("title", campaignService.getCampaignById(campaignID).getTitle());
+        return "player-campaign-details";
     }
 
     @GetMapping("/DMs/{dmID}/campaigns/createForm")

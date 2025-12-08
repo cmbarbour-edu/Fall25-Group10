@@ -17,7 +17,7 @@ public class PlayerController {
      @GetMapping("/createForm")
     public Object showCreatePlayerForm(Model model) {
         Player player = new Player();
-        model.addAttribute("Player", player);
+        model.addAttribute("player", player);
         model.addAttribute("title", "Add a new player");
         return "player-create";
     }
@@ -46,7 +46,7 @@ public class PlayerController {
     @GetMapping("/{id}/home")
     public Object getPlayerByID(@PathVariable Long id, Model model) {
         Player player = playerService.getPlayerById(id);
-        model.addAttribute("Player", player);
+        model.addAttribute("player", player);
         model.addAttribute("title", "Player:");
         return "playerhome";
     }
@@ -61,7 +61,7 @@ public class PlayerController {
     @GetMapping("/{id}/profile")
     public Object viewPlayer(@PathVariable Long id, Model model) {
         Player player = playerService.getPlayerById(id);
-        model.addAttribute("Player", player);
+        model.addAttribute("player", player);
         
         model.addAttribute("Title", "Player:");
         return "playerhome";

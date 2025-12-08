@@ -31,9 +31,7 @@
                     <li class="nav-item align-middle">
                         <a class="nav-link" href="">Tools</a>
                     </li>
-                    <li class="nav-item align-middle">
-                        <a class="nav-link" href="/DMs/${DM.dmID}/requests">View Requests</a>
-                    </li>
+                    
                     <li class="nav-item dropdown-center">
                         <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                             Profile
@@ -51,7 +49,7 @@
     </nav>
     <!-- Campaign Info -->
     <div class="container py-4">
-        <p class="fw-bold fs-1">Your campaigns</p>
+        <p class="fw-bold fs-1">Campaigns</p>
         <div class="row row-cols-1">
             <div class="col col-sm">
                 <#list campaignList as campaign>

@@ -23,7 +23,7 @@
     <!-- Navbar -->
     <nav class="navbar bg-dark boarder-bottom border-3 border-secondary" data-bs-theme="dark">
         <div class="container-fluid" position="relative">
-            <a class="navbar-brand" href="/DMs/${DM.dmID}/home">
+            <a class="navbar-brand" href="/players/${player.playerID}/home">
                 <img src="/d20OutlineWhite.PNG" alt="Nat20 Network" width="30" height="auto" class="d-inline-block align-text-top">
             Nat20 Network
             </a>
@@ -32,9 +32,7 @@
                     <li class="nav-item align-middle">
                         <a class="nav-link" href="">Tools</a>
                     </li>
-                    <li class="nav-item align-middle">
-                        <a class="nav-link" href="/DMs/${DM.dmID}/requests">View Requests</a>
-                    </li>
+                    
                     <li class="nav-item dropdown-center">
                         <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                             Profile
