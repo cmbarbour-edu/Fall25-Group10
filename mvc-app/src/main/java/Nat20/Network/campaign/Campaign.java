@@ -68,11 +68,11 @@ public class Campaign {
         players.add(p);
         p.getCampaigns().add(this);
     }
+    */
 
     public void removePlayer(Player p) {
-        players.remove(p);
+        this.players.remove(p);
         p.getCampaigns().remove(this);
     }
-        */
 
 }

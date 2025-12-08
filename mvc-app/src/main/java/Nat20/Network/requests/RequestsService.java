@@ -2,7 +2,7 @@ package Nat20.Network.requests;
 
 import Nat20.Network.players.*;
 import Nat20.Network.campaign.*;
-
+import Nat20.Network.dungeonMaster.DM;
 import jakarta.persistence.EntityNotFoundException;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -38,11 +38,38 @@ public class RequestsService {
         requestsRepo.save(requests);
     }
 
+    public void acceptRequest(Long id) {
+        Requests requests = requestsRepo.findById(id)
+            .orElseThrow(() -> new EntityNotFoundException("Request not found"));
+        requests.acceptRequest();
+        requestsRepo.save(requests);
+    }
+
+    public void rejectRequest(Long id) {
+        Requests requests = requestsRepo.findById(id)
+            .orElseThrow(() -> new EntityNotFoundException("Request not found"));
+        requests.rejectRequest();
+        requestsRepo.save(requests);
+    }
+
+    public Requests getRequestById(Long id) {
+        return requestsRepo.findById(id)
+            .orElseThrow(() -> new EntityNotFoundException("Request not found"));
+    }
+
     public List<Requests> getActiveRequestsByPlayer(Player player) {
         return requestsRepo.findByPlayerAndActive(player, true);
     }
 
     public List<Requests> getRequestsByCampaign(Campaign campaign) {
-        return requestsRepo.findByCampaign(campaign);
+        return requestsRepo.findByCampaignAndActive(campaign, true);
+    }
+
+    public List<Requests> getRequestsByDM(DM dm) {
+        List<Requests> requests = new java.util.ArrayList<>();
+        for (Campaign campaign : dm.getCampaigns()) {
+            requests.addAll(requestsRepo.findByCampaignAndActive(campaign, true));
+        }
+        return requests;
     }
 }

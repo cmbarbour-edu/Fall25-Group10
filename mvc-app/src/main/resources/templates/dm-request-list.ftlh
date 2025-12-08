@@ -16,7 +16,6 @@
                 justify-content: end;
             }
         }
-
     </style>
 </head>
 <body>
@@ -50,45 +49,28 @@
             </ul>
         </div>
     </nav>
-    <!-- Campaign Info-->
-     <div class="container py-3">
-        <div class="row">
-            <div class="col mx-auto">
-                <div class="card px-1">
-                    <h5 class="card-title fw-bold fs-1">${campaign.title}</h5>
-                    <h6 class="card-subtitle text-body-secondary fw-bold fs-3">Run by: @${DM.username}</h6>
-                    <div class="card-body py-1">
-                        <p class="fw-bold fs-5">Short description:</p>
-                        <p class="card-text text-body-secondary">${campaign.shortDescription}</p>
-                        <p class="fw-bold fs-5 pt-2">Extended description:</p>
-                        <p class="card-text text-body-secondary">${campaign.description}</p>
-                        <p class="fw-bold fs-5 pt-2">Edition:</p>
-                        <p class="card-text text-body-secondary">${campaign.edition}</p>
-                        <p class="fw-bold fs-5 pt-2">Privacy:</p>
-                        <#if campaign.isPublic>
-                            <p class="card-text text-body-secondary">Public</p>
-                        <#else>
-                            <p class="card-text text-body-secondary">Private</p>
-                        </#if>
-                        <a class="btn btn-primary" href="/DMs/${DM.dmID}/campaigns/${campaign.campaignID}/updateForm">Edit</a>
-                        <a class="btn btn-outline-danger" href="/DMs/${DM.dmID}/campaigns">Back</a>
-                        <h5 class="fw-bold fs-5 pt-2">Players</h5>
-                        <#list playerList as player>
-                            <div class="card py-3 px-2">
-                                <h5 class="card-title mb-0 d-flex align-items-center">
-                                    @${player.name}
-                                    <a
-                                        class="btn btn-danger btn-sm ms-2"
-                                        href="/DMs/${DM.dmID}/campaigns/${campaign.campaignID}/players/${player.playerID}/remove">
-                                        Remove
-                                    </a>
-                                </h5>
+    <!-- Use cards with player name as title that redirects to player stats page; subtitle is what campaign they wish to join; body content is their intro message-->
+    <div class="container py-4">
+        <p class="fw-bold fs-1">Player Requests</p>
+        <div class="row row-cols-1">
+            <div class="col col-sm">
+                <#list requestList as request>
+                    <div class="card py-3 px-2">
+                        <h5 class="card-title mx-1">Player: <a href="/DMs/${DM.dmID}/player/${request.player.playerID}/stats">@${request.player.name}</a></h5>
+                        <h6 class="card-subtitle mx-1 mb-2 ">Campaign: <a href="/DMs/${DM.dmID}/campaigns/${request.campaign.campaignID}">${request.campaign.title}</a></h6>
+                        <p class="card-text mx-1 mb-1 text-body-secondary">${request.requestMessage} </p>
+                        <div class="row mx-auto">
+                            <div class="col col-6">
+                                <a class="btn btn-primary" href="/DMs/${DM.dmID}/requests/${request.id}/accept" >Accept</a>
                             </div>
-                        </#list>
+                            <div class="col col-6">
+                                <a class="btn btn-danger" href="/DMs/${DM.dmID}/requests/${request.id}/reject" >Reject</a>
+                            </div>
+                        </div>
                     </div>
-                </div>
+                </#list>
             </div>
         </div>
-     </div>
+    </div>
 </body>
 </html>

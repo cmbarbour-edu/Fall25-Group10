@@ -41,20 +41,22 @@ public class Player {
     @ManyToMany(mappedBy = "players")
     private Set<Campaign> campaigns = new HashSet<>();
 
-    /*
-     * @OneToOne(cascade = CascadeType.ALL, orphanRemoval = true)
-     * 
-     * @JoinColumn(name = "stats_id", referencedColumnName = "id")
-     * 
-     * @JsonIgnoreProperties("player")
-     * private PlayerStats stats;
-     */
+
+    @OneToOne(cascade = CascadeType.ALL, orphanRemoval = true)
+    @JoinColumn(name = "stats_id", referencedColumnName = "id")
+    @JsonIgnoreProperties("player")
+    private PlayerStats stats;
+    
     public Player(long id) {
         this.playerID = id;
     }
 
     public Set<Campaign> getCampaigns() {
         return campaigns;
+    }
+
+    public PlayerStats getStats() {
+        return stats;
     }
 
     @Override

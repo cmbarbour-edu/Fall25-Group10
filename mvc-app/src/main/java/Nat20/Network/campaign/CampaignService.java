@@ -7,12 +7,15 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import Nat20.Network.dungeonMaster.DM;
+import Nat20.Network.players.Player;
+import Nat20.Network.players.PlayerRepo;
 
 @Service
 @RequiredArgsConstructor
 @Transactional
 public class CampaignService {
 	private final CampaignRepository campaignRepository;
+    private final PlayerRepo playerRepository;
 
     public Campaign createCampaign(Campaign campaign, DM dm) {
         if (campaignRepository.existsByTitle(campaign.getTitle())) {
@@ -38,8 +41,8 @@ public class CampaignService {
         return campaignRepository.save(existingCampaign);
     }
 
-    public Object getAllCampaigns() {
-        return campaignRepository.findAll();
+    public Object getAllPublicCampaigns() {
+        return campaignRepository.findByIsPublicTrue();
     }
     
     public Campaign getCampaignById(Long id) {
@@ -52,5 +55,11 @@ public class CampaignService {
             throw new EntityNotFoundException("Campaign not found with id: " + id);
         }
         campaignRepository.deleteById(id);
+    }
+
+    public void removePlayer(Campaign campaign, Player player) {
+        campaign.removePlayer(player);
+        campaignRepository.save(campaign);
+        playerRepository.save(player);
     }
 }

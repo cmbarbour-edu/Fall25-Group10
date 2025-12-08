@@ -6,8 +6,8 @@ import org.springframework.ui.Model;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 
-import Nat20.Network.dungeonMaster.DM;
-import Nat20.Network.dungeonMaster.DMService;
+import Nat20.Network.dungeonMaster.*;
+import Nat20.Network.players.*;
 
 @Controller
 @RequestMapping
@@ -15,11 +15,12 @@ import Nat20.Network.dungeonMaster.DMService;
 public class CampaignController {
     private final CampaignService campaignService;
     private final DMService dmService;
+    private final PlayerService playerService;
     
     // Campaign forms
     @GetMapping("/campaigns")
-    public Object getAllCampaigns(Model model) {
-        model.addAttribute("campaignList", campaignService.getAllCampaigns());
+    public Object getAllPublicCampaigns(Model model) {
+        model.addAttribute("campaignList", campaignService.getAllPublicCampaigns());
         model.addAttribute("title", "Campaigns:");
         return "campaign-list";
     }
@@ -92,6 +93,17 @@ public class CampaignController {
         model.addAttribute("campaignList", dm.getCampaigns());
         model.addAttribute("title", "Campaigns by @${DM.username}");
         return "dm-campaign-list";
+    }
+    @GetMapping("/DMs/{dmID}/campaigns/{campaignID}/players/{playerID}/remove")
+    public Object removePlayer(@PathVariable Long dmID, @PathVariable Long campaignID, @PathVariable Long playerID, Model model) {
+        DM dm = dmService.getDMById(dmID);
+        Campaign campaign = campaignService.getCampaignById(campaignID);
+        Player player = playerService.getPlayerById(playerID);
+        if (dm == campaign.getDm()) {
+            campaignService.removePlayer(campaign, player);
+            return "redirect:/DMs/" + dmID + "/campaigns/" + campaignID;
+        }
+        else return "redirect:/DMs/" + dmID + "/home";
     }
 
 }

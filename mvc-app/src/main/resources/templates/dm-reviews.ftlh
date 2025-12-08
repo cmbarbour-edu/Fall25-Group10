@@ -16,7 +16,9 @@
                 justify-content: end;
             }
         }
-
+        .card {
+            border: none;
+        }
     </style>
 </head>
 <body>
@@ -50,45 +52,43 @@
             </ul>
         </div>
     </nav>
-    <!-- Campaign Info-->
-     <div class="container py-3">
-        <div class="row">
-            <div class="col mx-auto">
-                <div class="card px-1">
-                    <h5 class="card-title fw-bold fs-1">${campaign.title}</h5>
-                    <h6 class="card-subtitle text-body-secondary fw-bold fs-3">Run by: @${DM.username}</h6>
-                    <div class="card-body py-1">
-                        <p class="fw-bold fs-5">Short description:</p>
-                        <p class="card-text text-body-secondary">${campaign.shortDescription}</p>
-                        <p class="fw-bold fs-5 pt-2">Extended description:</p>
-                        <p class="card-text text-body-secondary">${campaign.description}</p>
-                        <p class="fw-bold fs-5 pt-2">Edition:</p>
-                        <p class="card-text text-body-secondary">${campaign.edition}</p>
-                        <p class="fw-bold fs-5 pt-2">Privacy:</p>
-                        <#if campaign.isPublic>
-                            <p class="card-text text-body-secondary">Public</p>
-                        <#else>
-                            <p class="card-text text-body-secondary">Private</p>
-                        </#if>
-                        <a class="btn btn-primary" href="/DMs/${DM.dmID}/campaigns/${campaign.campaignID}/updateForm">Edit</a>
-                        <a class="btn btn-outline-danger" href="/DMs/${DM.dmID}/campaigns">Back</a>
-                        <h5 class="fw-bold fs-5 pt-2">Players</h5>
-                        <#list playerList as player>
-                            <div class="card py-3 px-2">
-                                <h5 class="card-title mb-0 d-flex align-items-center">
-                                    @${player.name}
-                                    <a
-                                        class="btn btn-danger btn-sm ms-2"
-                                        href="/DMs/${DM.dmID}/campaigns/${campaign.campaignID}/players/${player.playerID}/remove">
-                                        Remove
-                                    </a>
-                                </h5>
+    <!-- Reviews for the DM -->
+    <div class="container py-4">
+        <p class="fw-bold fs-1">Player Feedback</p>
+        <div class="row row-cols-1">
+            <div class="col col-sm">
+                <#list reviewList as review>
+                    <div class="card py-3 px-2">
+                        <h5 class="card-title mx-1">Player: <a href="/DMs/${DM.dmID}/players/${review.player.playerID}/stats">@${review.player.name} </a></h5>
+                        <h6 class="card-subtitle mx-1 mb-2 ">Campaign: <a href="/DMs/${DM.dmID}/campaigns/${review.campaign.campaignID}">${review.campaign.title} </a></h6>
+                        <p class="card-text mx-1 mb-1">Campaign Rating: ${review.campaignRating} </p>
+                        <p class="card-text mx-1 mb-1">DM Rating: ${review.dmRating} </p>
+                        <p class="card-text mx-1 mb-1">Overall Rating: ${review.overallRating} </p>
+                        <p class="card-text mx-1 mb-1 text-body-secondary">${review.comment} </p>
+                        <#if (review.dmResponse?has_content)>
+                            <div class="card mt-3">
+                                <div class="card-body">
+                                    <h6 class="card-subtitle mb-2 text-body-secondary">DM Response:</h6>
+                                    <p class="card-text text-body-secondary">${review.dmResponse}</p>
+                                </div>
                             </div>
-                        </#list>
+                        <#else>
+                            <form action="/DMs/${DM.dmID}/reviews/${review.id}/dmresponse" method="post">
+                                <button class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#replyBox-${review.id}" aria-expanded="false" aria-controls="replyBox">Reply</button>
+                                <div class="collapse mt-3" id="replyBox-${review.id}">
+                                    <div class="card card-body">
+                                        <textarea name="dmResponse" class="form-control mb-2" rows="3" placeholder="Write your reply..."></textarea>
+                                        <div class="container py-4">
+                                            <button type="submit" class="btn btn-primary">Send</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </form>
+                        </#if>
                     </div>
-                </div>
+                </#list>
             </div>
         </div>
-     </div>
+    </div>
 </body>
 </html>

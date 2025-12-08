@@ -15,6 +15,10 @@ public interface CampaignRepository extends JpaRepository<Campaign, Long>{
     @Query(value = "select * from campaigns c where c.edition like %?1%", nativeQuery = true)
     List<Campaign> findByEdition(String edition);
 
+    @Query(value = "select * from campaigns c where c.isPublic is true", nativeQuery = true)
+    List<Campaign> findByIsPublicTrue();
+
+
     boolean existsByTitle(String title);
 
     @Query(value = "select * from campaigns c where dm_id = ?1", nativeQuery = true)
