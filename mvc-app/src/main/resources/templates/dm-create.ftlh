@@ -27,13 +27,13 @@
                         <a class="nav-link" href="tools.html">Tools</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="about.html">About Us</a>
+                        <a class="nav-link" href="">About Us</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="signup.html">Sign up</a>
+                        <a class="nav-link" href="">Sign up</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="login.html">Login</a>
+                        <a class="nav-link" href="">Login</a>
                     </li>
                 </ul>
             </ul>

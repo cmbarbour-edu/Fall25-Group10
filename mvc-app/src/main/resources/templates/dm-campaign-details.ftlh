@@ -30,7 +30,7 @@
             <ul class="navbar-nav justify-content-center">
                 <ul class="nav justify-content-left">
                     <li class="nav-item align-middle">
-                        <a class="nav-link" href="">Tools</a>
+                        <a class="nav-link" href="/DMs/${DM.dmID}/rules">Rules</a>
                     </li>
                     <li class="nav-item align-middle">
                         <a class="nav-link" href="/DMs/${DM.dmID}/requests">View Requests</a>

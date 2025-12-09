@@ -32,7 +32,7 @@
             <ul class="navbar-nav justify-content-center">
                 <ul class="nav justify-content-left">
                     <li class="nav-item align-middle">
-                        <a class="nav-link" href="">Tools</a>
+                        <a class="nav-link" href="/DMs/${DM.dmID}/rules">Rules</a>
                     </li>
                     <li class="nav-item align-middle">
                         <a class="nav-link" href="/DMs/${DM.dmID}/requests">View Requests</a>
@@ -64,14 +64,11 @@
                         <p class="card-text mx-1 mb-1">Campaign Rating: ${review.campaignRating} </p>
                         <p class="card-text mx-1 mb-1">DM Rating: ${review.dmRating} </p>
                         <p class="card-text mx-1 mb-1">Overall Rating: ${review.overallRating} </p>
+                        <p class="card-text mx-1 mb-1">Comments: </p>
                         <p class="card-text mx-1 mb-1 text-body-secondary">${review.comment} </p>
                         <#if (review.dmResponse?has_content)>
-                            <div class="card mt-3">
-                                <div class="card-body">
-                                    <h6 class="card-subtitle mb-2 text-body-secondary">DM Response:</h6>
-                                    <p class="card-text text-body-secondary">${review.dmResponse}</p>
-                                </div>
-                            </div>
+                            <p class="card-text mx-1 mb-1">DM Response: </p>
+                            <p class="card-text mx-1 mb-1 text-body-secondary">${review.dmResponse}</p>    
                         <#else>
                             <form action="/DMs/${DM.dmID}/reviews/${review.id}/dmresponse" method="post">
                                 <button class="btn btn-primary" type="button" data-bs-toggle="collapse" data-bs-target="#replyBox-${review.id}" aria-expanded="false" aria-controls="replyBox">Reply</button>

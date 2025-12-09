@@ -15,7 +15,7 @@ public class PlayerStatsController {
     private final DMService dmService;
     private final PlayerService playerService;
 
-    @GetMapping("/DMs/{dmID}/player/{playerID}/stats")
+    @GetMapping("/DMs/{dmID}/players/{playerID}/stats")
     public Object viewPlayerStats(@PathVariable Long dmID, @PathVariable Long playerID, Model model) {
         DM dm = dmService.getDMById(dmID);
         Player player = playerService.getPlayerById(playerID);

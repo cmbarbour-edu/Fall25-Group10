@@ -29,7 +29,7 @@
             <ul class="navbar-nav justify-content-center">
                 <ul class="nav justify-content-left">
                     <li class="nav-item align-middle">
-                        <a class="nav-link" href="">Tools</a>
+                        <a class="nav-link" href="/DMs/${DM.dmID}/rules">Rules</a>
                     </li>
                     <li class="nav-item align-middle">
                         <a class="nav-link" href="/DMs/${DM.dmID}/requests">View Requests</a>
@@ -56,7 +56,7 @@
             <div class="col col-sm">
                 <#list requestList as request>
                     <div class="card py-3 px-2">
-                        <h5 class="card-title mx-1">Player: <a href="/DMs/${DM.dmID}/player/${request.player.playerID}/stats">@${request.player.name}</a></h5>
+                        <h5 class="card-title mx-1">Player: <a href="/DMs/${DM.dmID}/players/${request.player.playerID}/stats">@${request.player.name}</a></h5>
                         <h6 class="card-subtitle mx-1 mb-2 ">Campaign: <a href="/DMs/${DM.dmID}/campaigns/${request.campaign.campaignID}">${request.campaign.title}</a></h6>
                         <p class="card-text mx-1 mb-1 text-body-secondary">${request.requestMessage} </p>
                         <div class="row mx-auto">

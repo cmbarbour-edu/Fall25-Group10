@@ -37,7 +37,7 @@
             <ul class="navbar-nav justify-content-center">
                 <ul class="nav justify-content-left">
                     <li class="nav-item align-middle">
-                        <a class="nav-link" href="/high-fidelity-prototype/tools.html">Tools</a>
+                        <a class="nav-link" href="/DMs/${DM.dmID}/rules">Rules</a>
                     </li>
                     <li class="nav-item align-middle">
                         <a class="nav-link" href="/DMs/${DM.dmID}/requests">View Requests</a>
@@ -72,7 +72,7 @@
                 <div class="card h-50">
                     <img src="/placeholder2.png" class="card-img-top" alt="View Reviews">
                     <div class="card-body">
-                        <a href="/high-fidelity-prototype/provider-prototype/playerfeedback.html" class="btn btn-primary w-75">View Player Feedback</a>
+                        <a href="/DMs/${DM.dmID}/reviews" class="btn btn-primary w-75">View Player Feedback</a>
                     </div>
                 </div>
             </div>

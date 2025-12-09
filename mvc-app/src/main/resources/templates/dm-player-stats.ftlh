@@ -32,7 +32,7 @@
             <ul class="navbar-nav justify-content-center">
                 <ul class="nav justify-content-left">
                     <li class="nav-item align-middle">
-                        <a class="nav-link" href="">Tools</a>
+                        <a class="nav-link" href="/DMs/${DM.dmID}/rules">Rules</a>
                     </li>
                     <li class="nav-item align-middle">
                         <a class="nav-link" href="/DMs/${DM.dmID}/requests">View Requests</a>
@@ -58,9 +58,9 @@
         <p class="fw-bold fs-3">Number of Campaigns: ${Stats.numberOfCampaigns} </p>
         <p class="fw-bold fs-3">Times Kicked: ${Stats.numberOfTimesKicked} </p>
         <p class="fw-bold fs-3">Highest Level Character: </p>
-        <p class="fw-bold fs-4">Level ${Stats.highestLevel} </p>
+        <p class="fw-bold fs-4 text-body-secondary">Level ${Stats.highestLevel} </p>
         <p class="fw-bold fs-3">Favourite Class: </p>
-        <p class="fw-bold fs-4">${Stats.favouriteClass} </p>
+        <p class="fw-bold fs-4 text-body-secondary">${Stats.favouriteClass} </p>
         
         <p class="fw-bold fs-3">Active Campaigns</p>
         <div class="container py-4">    
