@@ -30,7 +30,7 @@
             <ul class="navbar-nav justify-content-center">
                 <ul class="nav justify-content-left">
                     <li class="nav-item align-middle">
-                        <a class="nav-link" href="">Tools</a>
+                        <a class="nav-link" href="/DMs/${DM.dmID}/rules">Rules</a>
                     </li>
                     <li class="nav-item align-middle">
                         <a class="nav-link" href="/DMs/${DM.dmID}/requests">View Requests</a>
@@ -75,9 +75,14 @@
                         <h5 class="fw-bold fs-5 pt-2">Players</h5>
                         <#list playerList as player>
                             <div class="card py-3 px-2">
-                                <h5 class="card-title">@${player.name}</h5>
-                                <!--Make button smaller and show beside player username-->
-                                <a class="btn btn-danger" href="/DMs/${DM.dmID}/campaigns/${campaign.campaignID}/removePlayer/${player.playerID}">Remove Player</a>
+                                <h5 class="card-title mb-0 d-flex align-items-center">
+                                    @${player.name}
+                                    <a
+                                        class="btn btn-danger btn-sm ms-2"
+                                        href="/DMs/${DM.dmID}/campaigns/${campaign.campaignID}/players/${player.playerID}/remove">
+                                        Remove
+                                    </a>
+                                </h5>
                             </div>
                         </#list>
                     </div>

@@ -16,6 +16,9 @@
                 justify-content: end;
             }
         }
+        .card {
+            border: none;
+        }
     </style>
 </head>
 <body>
@@ -49,25 +52,23 @@
             </ul>
         </div>
     </nav>
-    <!-- Campaign Info -->
+    <!-- List of Rules -->
     <div class="container py-4">
-        <p class="fw-bold fs-1">Your campaigns</p>
-        <div class="row row-cols-1">
-            <div class="col col-sm">
-                <#list campaignList as campaign>
-                    <div class="card py-3 px-2">
-                        <h3 class="card-title">${campaign.title}</h3>
-                        <h4 class="card-subtitle mb-2 text-body-secondary">${campaign.edition}</h4>
-                        <p class="card-text text-body-secondary">${campaign.description}</p>
-                        <#if campaign.isPublic>
-                            <p class="card-text text-body-secondary">Public</p>
-                        <#else>
-                            <p class="card-text text-body-secondary">Private</p>
-                        </#if>
-                        <a href="/DMs/${DM.dmID}/campaigns/${campaign.campaignID}" class="card-link">Details</a>
+        <h1 class="fw-bold mb-4">Rule Sections</h1>
+        <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
+            <#list ruleList as rule>
+                <div class="col">
+                    <div class="card h-100 shadow-sm border-0">
+                        <div class="card-body d-flex flex-column">
+                            <h5 class="card-title">
+                                <a href="/DMs/${DM.dmID}/rules/${rule.index}" class="stretched-link text-decoration-none text-dark">
+                                    ${rule.name}
+                                </a>
+                            </h5>
+                        </div>
                     </div>
-                </#list>
-            </div>
+                </div>
+            </#list>
         </div>
     </div>
 </body>

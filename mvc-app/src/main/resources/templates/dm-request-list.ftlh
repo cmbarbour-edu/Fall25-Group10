@@ -49,22 +49,24 @@
             </ul>
         </div>
     </nav>
-    <!-- Campaign Info -->
+    <!-- Use cards with player name as title that redirects to player stats page; subtitle is what campaign they wish to join; body content is their intro message-->
     <div class="container py-4">
-        <p class="fw-bold fs-1">Your campaigns</p>
+        <p class="fw-bold fs-1">Player Requests</p>
         <div class="row row-cols-1">
             <div class="col col-sm">
-                <#list campaignList as campaign>
+                <#list requestList as request>
                     <div class="card py-3 px-2">
-                        <h3 class="card-title">${campaign.title}</h3>
-                        <h4 class="card-subtitle mb-2 text-body-secondary">${campaign.edition}</h4>
-                        <p class="card-text text-body-secondary">${campaign.description}</p>
-                        <#if campaign.isPublic>
-                            <p class="card-text text-body-secondary">Public</p>
-                        <#else>
-                            <p class="card-text text-body-secondary">Private</p>
-                        </#if>
-                        <a href="/DMs/${DM.dmID}/campaigns/${campaign.campaignID}" class="card-link">Details</a>
+                        <h5 class="card-title mx-1">Player: <a href="/DMs/${DM.dmID}/players/${request.player.playerID}/stats">@${request.player.name}</a></h5>
+                        <h6 class="card-subtitle mx-1 mb-2 ">Campaign: <a href="/DMs/${DM.dmID}/campaigns/${request.campaign.campaignID}">${request.campaign.title}</a></h6>
+                        <p class="card-text mx-1 mb-1 text-body-secondary">${request.requestMessage} </p>
+                        <div class="row mx-auto">
+                            <div class="col col-6">
+                                <a class="btn btn-primary" href="/DMs/${DM.dmID}/requests/${request.id}/accept" >Accept</a>
+                            </div>
+                            <div class="col col-6">
+                                <a class="btn btn-danger" href="/DMs/${DM.dmID}/requests/${request.id}/reject" >Reject</a>
+                            </div>
+                        </div>
                     </div>
                 </#list>
             </div>

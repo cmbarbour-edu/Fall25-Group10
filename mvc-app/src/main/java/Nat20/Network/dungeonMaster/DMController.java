@@ -63,13 +63,5 @@ public class DMController {
         model.addAttribute("Title", "DM:");
         return "dm-profile";
     }
-    /*
-    // DM Requests
-    @GetMapping("/${dmID}/requests")
-    public Object viewRequests(@PathVariable Long dmID, Model model) {
-        // get requests by dm ID?
-
-        return "dm-requests";
-    }
-        */
+    
 }

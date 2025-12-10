@@ -16,6 +16,9 @@
                 justify-content: end;
             }
         }
+        .card {
+            border: none;
+        }
     </style>
 </head>
 <body>
@@ -49,26 +52,36 @@
             </ul>
         </div>
     </nav>
-    <!-- Campaign Info -->
-    <div class="container py-4">
-        <p class="fw-bold fs-1">Your campaigns</p>
-        <div class="row row-cols-1">
-            <div class="col col-sm">
-                <#list campaignList as campaign>
-                    <div class="card py-3 px-2">
-                        <h3 class="card-title">${campaign.title}</h3>
-                        <h4 class="card-subtitle mb-2 text-body-secondary">${campaign.edition}</h4>
-                        <p class="card-text text-body-secondary">${campaign.description}</p>
-                        <#if campaign.isPublic>
-                            <p class="card-text text-body-secondary">Public</p>
-                        <#else>
-                            <p class="card-text text-body-secondary">Private</p>
-                        </#if>
-                        <a href="/DMs/${DM.dmID}/campaigns/${campaign.campaignID}" class="card-link">Details</a>
-                    </div>
-                </#list>
+    <!-- Player Info -->
+    <div class="container">
+        <h1 class="text-left mt-3">@${Player.name}</h1>
+        <p class="fw-bold fs-3">Number of Campaigns: ${Stats.numberOfCampaigns} </p>
+        <p class="fw-bold fs-3">Times Kicked: ${Stats.numberOfTimesKicked} </p>
+        <p class="fw-bold fs-3">Highest Level Character: </p>
+        <p class="fw-bold fs-4 text-body-secondary">Level ${Stats.highestLevel} </p>
+        <p class="fw-bold fs-3">Favourite Class: </p>
+        <p class="fw-bold fs-4 text-body-secondary">${Stats.favouriteClass} </p>
+        
+        <p class="fw-bold fs-3">Active Campaigns</p>
+        <div class="container py-4">    
+            <div class="row row-cols-1">
+                <div class="col col-sm">
+                    <#list campaignList as campaign>
+                        <div class="card py-3 px-2">
+                            <h3 class="card-title">${campaign.title}</h3>
+                            <h4 class="card-subtitle mb-2 text-body-secondary">${campaign.edition}</h4>
+                            <p class="card-text text-body-secondary">${campaign.description}</p>
+                            <#if campaign.isPublic>
+                                <p class="card-text text-body-secondary">Public</p>
+                            <#else>
+                                <p class="card-text text-body-secondary">Private</p>
+                            </#if>
+                        </div>
+                    </#list>
+                </div>
             </div>
         </div>
     </div>
+    
 </body>
 </html>

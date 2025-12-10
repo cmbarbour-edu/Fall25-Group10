@@ -16,6 +16,25 @@
                 justify-content: end;
             }
         }
+        .card {
+            border: none;
+        }
+        .rule-description table {
+            border-collapse: collapse;
+            width: 100%;
+            margin: 1em 0;
+        }
+
+        .rule-description th,
+        .rule-description td {
+            border: 1px solid #ccc;
+            padding: 0.5em;
+            text-align: center;
+        }
+
+        .rule-description th {
+            background-color: #f0f0f0;
+        }
     </style>
 </head>
 <body>
@@ -49,24 +68,15 @@
             </ul>
         </div>
     </nav>
-    <!-- Campaign Info -->
-    <div class="container py-4">
-        <p class="fw-bold fs-1">Your campaigns</p>
-        <div class="row row-cols-1">
-            <div class="col col-sm">
-                <#list campaignList as campaign>
-                    <div class="card py-3 px-2">
-                        <h3 class="card-title">${campaign.title}</h3>
-                        <h4 class="card-subtitle mb-2 text-body-secondary">${campaign.edition}</h4>
-                        <p class="card-text text-body-secondary">${campaign.description}</p>
-                        <#if campaign.isPublic>
-                            <p class="card-text text-body-secondary">Public</p>
-                        <#else>
-                            <p class="card-text text-body-secondary">Private</p>
-                        </#if>
-                        <a href="/DMs/${DM.dmID}/campaigns/${campaign.campaignID}" class="card-link">Details</a>
-                    </div>
-                </#list>
+    <!-- Rule Details -->
+    <div class="container py-3">
+        <div class="row">
+            <div class="col mx-auto">
+                <div class="card px-1">
+                    <div class="rule-description">${descHtml?no_esc}</div>
+                    <p class="card-text text-body-secondary">Updated at: ${rule.updated_at}</p>
+                    <a class="btn btn-outline-danger" href="/DMs/${DM.dmID}/rules">Back</a>
+                </div>
             </div>
         </div>
     </div>

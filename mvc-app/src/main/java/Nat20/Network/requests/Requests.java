@@ -31,11 +31,25 @@ public class Requests {
     private Campaign campaign;
 
     @NotNull
+    private String requestMessage;
+    
+    @NotNull
     @Enumerated(EnumType.STRING)
     private RequestType type;
 
     @NotNull
     private boolean active = true;
+
+    public void acceptRequest() {
+        this.active = false;
+        this.campaign.getPlayers().add(player);
+        player.getCampaigns().add(campaign);
+    }
+
+    public void rejectRequest() {
+        this.active = false;
+    }
+
 }
 
 enum RequestType {

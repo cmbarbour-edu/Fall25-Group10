@@ -24,10 +24,7 @@
                 <ul class="nav justify-content-left">
                     <!-- Replace nav items with template pages later -->
                     <li class="nav-item">
-                        <a class="nav-link" href="tools.html">Tools</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="about.html">About Us</a>
+                        <a class="nav-link" href="">About Us</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="/signup">Sign up</a>

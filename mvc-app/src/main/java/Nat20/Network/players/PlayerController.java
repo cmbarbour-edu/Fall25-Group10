@@ -86,7 +86,7 @@ public class PlayerController {
     }
 */
     @PutMapping("/{playerId}/campaigns/{campaignId}")
-public ResponseEntity<String> addPlayerToCampaign(
+    public ResponseEntity<String> addPlayerToCampaign(
         @PathVariable Long playerId,
         @PathVariable Long campaignId) {
     playerService.addPlayerToCampaign(playerId, campaignId);
