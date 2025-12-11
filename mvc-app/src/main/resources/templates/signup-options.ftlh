@@ -44,6 +44,7 @@
         <div class="d-grid gap-2">
             <a href="/DMs/createForm" class="btn btn-primary btn-lg">Sign up as a DM</a>
             <a href="#" class="btn btn-primary btn-lg">Sign up as a player</a>
+            <a href="#" class="btn btn-primary btn-lg">Sign up as a Sys Admin</a>
         </div>
     </div>
 </body>

@@ -39,6 +39,11 @@ public class PlayerService {
                 .orElseThrow(() -> new EntityNotFoundException("Player not found"));
     }
 
+    public Player getPlayerByEmail(String email) {
+        return playerRepo.findByEmail(email)
+                .orElseThrow(() -> new EntityNotFoundException("Player not found"));
+    }
+
     public List<Player> getAllPlayers() {
         return playerRepo.findAll();
     }

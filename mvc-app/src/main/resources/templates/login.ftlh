@@ -39,23 +39,38 @@
             </ul>
         </div>
     </nav>
-    <!-- Log In -->
-     <form>
-        <div class="mb-3">
-            <label for="exampleInputEmail1" class="form-label">Email address</label>
-            <input type="email" class="form-control" id="exampleInputEmail1" placeholder="Nat20Network@gmail.com" aria-describedby="emailHelp">
-            <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
-        </div>
-        <div class="mb-3">
-            <label for="exampleInputPassword1" class="form-label">Password</label>
-            <input type="password" class="form-control" id="exampleInputPassword1">
-        </div>
-        <div class="d-grid gap-2 col-4 justify-content-center mx-auto">
-            <a href="/high-fidelity-prototype/customer-prototype/playerhome.html" class="btn btn-primary" role="button">Sign in as player</a>
-            <a href="/high-fidelity-prototype/provider-prototype/dmhome.html" class="btn btn-primary" role="button">Sign in as DM</a>
-            <button type="submit" class="btn btn-primary" href="">Sign in as system admin</button>
-        </div>
-        
-    </form>
+    <!-- Login Form -->
+	<form action="/login" method="post" class="container py-4" style="max-width:720px;">
+
+		<#if error??>
+			<div class="alert alert-danger">${error}</div>
+		</#if>
+		<div class="mb-3">
+			<label class="form-label">Email address</label>
+			<input type="email" class="form-control" name="email" value="${email!}">
+		</div>
+		<div class="mb-3">
+			<label class="form-label">Password</label>
+			<input type="password" class="form-control" name="password">
+		</div>
+
+		<!-- hidden role field -->
+		<input type="hidden" id="role" name="role">
+
+		<div class="d-grid gap-2 col-4 mx-auto">
+			<button type="submit" class="btn btn-primary"
+				onclick="document.getElementById('role').value='PLAYER'">
+				Sign in as player
+			</button>
+			<button type="submit" class="btn btn-primary"
+				onclick="document.getElementById('role').value='DM'">
+				Sign in as DM
+			</button>
+			<button type="submit" class="btn btn-primary"
+				onclick="document.getElementById('role').value='ADMIN'">
+				Sign in as system admin
+			</button>
+		</div>
+	</form>
 </body>
 </html>
