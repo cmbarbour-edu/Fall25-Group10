@@ -11,6 +11,7 @@ import Nat20.Network.players.Player;
 import Nat20.Network.players.PlayerRepo;
 import Nat20.Network.review.Review;
 import Nat20.Network.review.ReviewRepository;
+import jakarta.persistence.EntityNotFoundException;
 
 import java.util.List;
 
@@ -27,6 +28,9 @@ public class SysadminService {
 
     @Autowired
     private CampaignRepository campaignRepository;
+
+    @Autowired
+    private SysadminRepository sysadminRepo;
 
     //@Autowired  
     //private StatisticsRepository statisticsRepository;
@@ -61,6 +65,11 @@ public class SysadminService {
 
     public DM updateDM(Long dmID, DM dm) {
         return dmRepository.save(dm);
+    }
+
+    public Sysadmin getSysadminByEmail(String email) {
+        return sysadminRepo.findByEmail(email)
+                .orElseThrow(() -> new EntityNotFoundException("Player not found"));
     }
 
     //public List<Statistics> getAllStatistics() {
