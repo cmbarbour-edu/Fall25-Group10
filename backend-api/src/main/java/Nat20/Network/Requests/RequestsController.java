@@ -1,4 +1,4 @@
-package Nat20.Network.requests;
+package Nat20.Network.Requests;
 
 import Nat20.Network.players.PlayerService;
 import Nat20.Network.campaign.CampaignService;
