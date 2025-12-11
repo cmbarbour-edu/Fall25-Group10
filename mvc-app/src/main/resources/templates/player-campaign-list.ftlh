@@ -37,7 +37,7 @@
                             Profile
                         </a>
                         <ul class="dropdown-menu dropdown-menu-end dropdown-menu-dark">
-                            <li><a class="dropdown-item" href="/players/${player.playerID}/profile">Manage profile</a></li>
+                            <li><a class="dropdown-item" href="/players/${player.playerID}/update">Manage profile</a></li>
                             <li><a class="dropdown-item" href="/players/${player.playerID}/home">Home</a></li>
                             <li><a class="dropdown-item" href="/players/${player.playerID}/reviews">Write reviews</a></li>
                             <li><a class="dropdown-item" href="/home">Log Out</a></li>

@@ -38,7 +38,7 @@
                             Profile
                         </a>
                         <ul class="dropdown-menu dropdown-menu-end dropdown-menu-dark">
-                            <li><a class="dropdown-item" href="/players/${player.playerID}/profile">Manage profile</a></li>
+                            <li><a class="dropdown-item" href="/players/${player.playerID}/update">Manage profile</a></li>
                             <li><a class="dropdown-item" href="/players/${player.playerID}/home">Home</a></li>
                             <li><a class="dropdown-item" href="/players/${player.playerID}/reviews">Create reviews</a></li>
                             <li><a class="dropdown-item" href="/home">Log Out</a></li>
@@ -78,7 +78,8 @@
                                 
                             </div>
                         </#list>
-                        <a class="btn btn-outline-danger" href="/players/{playerID}/campaigns">Back</a>
+                        <a class="btn btn-outline-danger" href="/players/${player.playerID}/campaigns">Back</a>
+                        <a class="btn btn-primary" href="/players/${player.playerID}/campaigns">Join</a>
                     </div>
                 </div>
             </div>
