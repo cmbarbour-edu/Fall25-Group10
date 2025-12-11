@@ -38,13 +38,15 @@
         </div>
     </nav>
     <h1>
-        Welcome Player!
+        Welcome to the Nat20 Network!
     </h1>
+    <br>
     <h3>
-        It seems you haven't joined a campaign yet.
+        Select "View Campaigns in the top right to join new campaigns, or view campaigns you are currently in!"
     </h3>
+    <br>
     <h4>
-        Select "View Campaigns" to get started!
+        Select "Tools if you wish to view the Player's Handbook for DnD 5e!"
     </h4>
 </body>
 </html>
