@@ -83,6 +83,33 @@ public class SysadminService {
     public List<Review> getAllReviewsForService(Campaign campaign) {
         return reviewRepository.findByCampaign(campaign);
     }
+    
+    public Player getPlayerById(Long id) {
+        return playerRepository.findById(id).orElse(null);
+    }
 
+    public DM getDMById(Long id) {
+        return dmRepository.findById(id).orElse(null);
+    }
+
+    public Campaign getCampaignById(Long id) {
+        return campaignRepository.findById(id).orElse(null);
+    }
+
+    public Review getReviewById(Long id) {
+        return reviewRepository.findById(id).orElse(null);
+    }
+
+    public void deleteCampaignById(Long campaignId) {
+        campaignRepository.deleteById(campaignId);
+    }
+
+    public List<Campaign> getAllCampaigns() {
+        return campaignRepository.findAll();
+    }
+
+    public Campaign updateCampaign(Long campaignID, Campaign campaign) {
+        return campaignRepository.save(campaign);
+    }
 }
  

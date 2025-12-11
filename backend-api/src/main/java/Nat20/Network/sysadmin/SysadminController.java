@@ -65,4 +65,6 @@ public class SysadminController {
         sysadminService.deleteServiceById(id);
     }
 
+
+    // add get/remove campaigns and fix dm controllers
 }

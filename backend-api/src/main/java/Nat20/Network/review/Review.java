@@ -37,7 +37,7 @@ public class Review {
 
     @ManyToOne
     @JoinColumn(name = "campaign_id", nullable = false)
-    @JsonIgnoreProperties({"reviews", "players", "gameMaster"})
+    @JsonIgnoreProperties({"reviews", "players", "DM"})
     private Campaign campaign;
 
     @NotNull
@@ -60,7 +60,6 @@ public class Review {
     @NotNull
     private LocalDateTime createdAt = LocalDateTime.now();
 
-    @JsonIgnore
     @Column(columnDefinition = "TEXT")
     private String dmResponse;
 

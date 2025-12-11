@@ -4,6 +4,8 @@ package Nat20.Network.review;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 import Nat20.Network.campaign.Campaign;
@@ -15,7 +17,8 @@ import java.util.List;
 import java.util.Map;
 import java.util.HashMap;
 
-@RestController
+// @RestController
+@Controller
 @RequestMapping("/api/reviews")
 @RequiredArgsConstructor
 public class ReviewController {
@@ -24,49 +27,70 @@ public class ReviewController {
     private final DMService dmService;
     private final CampaignService campaignService;
 
+    @GetMapping("/new")
+    public String showCreateReviewForm(Model model) {
+        model.addAttribute("review", new Review());
+        return "reviews-create"; // -> create.ftlh
+    }
+
     @PostMapping
-    public ResponseEntity<Review> createReview(@Valid @RequestBody Review review) {
+    public String createReview(@Valid @RequestBody Review review, Model model) {
         Review createdReview = reviewService.createReview(review);
-        return ResponseEntity.ok(createdReview);
+        model.addAttribute("review", createdReview);
+        return "reviews-details"; // -> details.ftlh
     }
 
     @PostMapping("/{id}/dmresponse")
-    public ResponseEntity<Review> respondToReview(@PathVariable Long id, @RequestBody String dmResponse) {
+    public String respondToReview(@PathVariable Long id, @RequestBody String dmResponse, Model model) {
         Review updatedReview = reviewService.respondToReview(id, dmResponse);
-        return ResponseEntity.ok(updatedReview);
+        model.addAttribute("review", updatedReview);
+        return "reviews-details"; // -> details.ftlh
+       // return ResponseEntity.ok(updatedReview);
     }
 
-    @DeleteMapping("/{id}")
-    public ResponseEntity<Void> deleteReview(@PathVariable Long id) {
+    @PostMapping("/{id}/delete")
+    public String deleteReview(@PathVariable Long id) {
         reviewService.deleteReview(id);
-        return ResponseEntity.ok().build();
+        return "redirect:/api/reviews";
+       // return ResponseEntity.ok().build();
     }
 
     @GetMapping("/campaign/{campaignId}") 
-    public ResponseEntity<List<Review>> getReviewsByCampaign(@PathVariable Long campaignId) {
+    public String getReviewsByCampaign(@PathVariable Long campaignId, Model model) {
         var campaign = campaignService.getCampaignById(campaignId);
         List<Review> reviews = reviewService.getReviewsByCampaign(campaign);
-        return ResponseEntity.ok(reviews);
+        model.addAttribute("campaign", campaign);
+        model.addAttribute("reviews", reviews);
+        return "reviews-list"; // -> list.ftlh
+        // return ResponseEntity.ok(reviews);
     }
 
     @GetMapping("/player/{playerId}")
-    public ResponseEntity<List<Review>> getReviewsByPlayer(@PathVariable Long playerId) {
+    public String getReviewsByPlayer(@PathVariable Long playerId, Model model) {
         var player = playerService.getPlayerById(playerId);
         List<Review> reviews = reviewService.getReviewsByPlayer(player);
-        return ResponseEntity.ok(reviews);
+
+        model.addAttribute("player", player);
+        model.addAttribute("reviews", reviews);
+        return "reviews-list"; // -> list.ftlh
+        // return ResponseEntity.ok(reviews);
 
 }
 
 
     @GetMapping("/dm/{dmid}")
-    public ResponseEntity<List<Review>> getReviewsByDM(@PathVariable Long dmid) {
+    public String getReviewsByDM(@PathVariable Long dmid, Model model) {
         var dm = dmService.getDMById(dmid);
         List<Review> reviews = reviewService.getReviewsByDM(dm);
-        return ResponseEntity.ok(reviews);
+
+        model.addAttribute("dm", dm);
+        model.addAttribute("reviews", reviews);
+        return "reviews-list"; // -> list.ftlh
+       // return ResponseEntity.ok(reviews);
     }
 
     @GetMapping("/campaign/{campaignId}/ratings")
-    public ResponseEntity<Map<String, Double>> getAverageRatingsForCampaign(@PathVariable Long campaignId) {
+    public String getAverageRatingsForCampaign(@PathVariable Long campaignId, Model model) {
         Campaign campaign = campaignService.getCampaignById(campaignId);
         double averageOverallRating = reviewService.getAverageOverallRating(campaign);
         double averageCampaignRating = reviewService.getAverageCampaignRating(campaign);
@@ -77,6 +101,10 @@ public class ReviewController {
         ratings.put("Campaign", averageCampaignRating);
         ratings.put("dm", averagedmRating);
 
-        return ResponseEntity.ok(ratings);
+        model.addAttribute("campaign", campaign);
+        model.addAttribute("ratings", ratings);
+        return "reviews-ratings"; // -> ratings.ftlh
+
+       // return ResponseEntity.ok(ratings);
     }
 }

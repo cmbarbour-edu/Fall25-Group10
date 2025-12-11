@@ -1,4 +1,4 @@
-package Nat20.Network.requests;
+package Nat20.Network.Requests;
 
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotNull;

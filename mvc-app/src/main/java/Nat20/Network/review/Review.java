@@ -66,5 +66,9 @@ public class Review {
 
     private LocalDateTime dmResponseDate;
 
+    public void setCampaign(Campaign campaign) {
+        this.campaign = campaign;
+    }
+
 
 }
