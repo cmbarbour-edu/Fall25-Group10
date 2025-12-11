@@ -41,6 +41,7 @@ Table of Contents
 | Nehemiah | 9/17    | System Admin Requirements | 1.1       |
 | Caleb    | 9/18    | DM Requirements           | 1.2       |
 | Brycen   | 9/18    | Player Requirements       | 1.3       |
+| Caleb    | 12/11   | Update Documentation      | 1.4       |
 
 ## 1. Introduction
 
@@ -100,17 +101,15 @@ User interface must support multiple user roles with appropriate permissions, th
 ### 3.1 Functional Requirements 
 * FR0: The system shall allow users to create an account as either a player or a DM.
 * FR1: The system shall allow users to modify their profiles on their own at any time.
-* FR2: The system shall allow DMs to create campaigns that are open to the public or available by invite only.
+* FR2: The system shall allow DMs to create campaigns that are open to the public
   * Each campaign will have additional information such as what edition is being used and a short description of its contents.
 * FR3: The system shall allow DMs to view user-specific data associated with their previous play experiences.
 * FR4: The system shall allow DMs to respond to reviews from their previous players regarding the behaviour and performance of the DM.
-* FR5: The system shall allow SysAdmins to promote or demote users between roles (Player ↔ DM).
-* FR6: The system shall allow SysAdmins to deactivate or delete user accounts.
-* FR7: The system shall allow SysAdmins to reset passwords and assist with account recovery.
-* FR8: The system shall allow SysAdmins to review and remove inappropriate or inactive campaigns.
-* FR9: The system shall allow SysAdmins to moderate reported reviews and remove offensive or fraudulent content.
-* FR10: The system shall allow players to create characters for campaigns that they join.
-* FR11: The system shall allow players to give feedback and give reviews for campaigns that they join.
+* FR5: The system shall allow SysAdmins to deactivate or delete user accounts.
+* FR6: The system shall allow SysAdmins to reset passwords and assist with account recovery.
+* FR7: The system shall allow SysAdmins to review and remove inappropriate or inactive campaigns.
+* FR8: The system shall allow SysAdmins to moderate reported reviews and remove offensive or fraudulent content.
+* FR9: The system shall allow players to give feedback and give reviews for campaigns that they join.
 
 
 #### 3.1.1 User interfaces
@@ -131,10 +130,8 @@ Web pages using HTML, CSS, JavaScript, and an API.
 
 #### 3.2.1 Performance
 * NFR1: The Nat20 Network system shall consume less than 300 MB of memory.
-* NFR2: A novice player shall be able to create a character in under 30 minutes.
-* NFR3: An advanced player shall be able to create a character in under 15 minutes.
-* NFR4: A novice DM should be able to create a new campaign in under 15 minutes. 
-* NFR5: An advanced DM shall be able to create a new campaign in under 10 minutes. 
+* NFR2: A novice DM should be able to create a new campaign in under 15 minutes. 
+* NFR3: An advanced DM shall be able to create a new campaign in under 10 minutes. 
 
 #### 3.2.2 Security
 * The system is going to be available only to those who have created and activated an account.
@@ -142,12 +139,12 @@ Web pages using HTML, CSS, JavaScript, and an API.
 #### 3.2.3 Reliability
 
 #### 3.2.4 Availability
-NFR7: The system is going to be available at all times of the day. Maintenance shall be scheduled for low user hours such as 3 A.M EST to reduce the impact that it will have on user experience. 
+NFR4: The system is going to be available at all times of the day. Maintenance shall be scheduled for low user hours such as 3 A.M EST to reduce the impact that it will have on user experience. 
 
 #### 3.2.5 Compliance
 
 #### 3.2.6 Cost
-NFR8: The expected monetary cost of the project is $0
+NFR5: The expected monetary cost of the project is $0
 
 #### 3.2.7 Deadline
-* NFR9: The final product must be deployed by December 2025.
+* NFR6: The final product must be deployed by December 2025.
