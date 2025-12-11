@@ -86,7 +86,7 @@
                 <div class="card h-50">
                     <img src="/placeholder2.png" class="card-img-top" alt="View Manuals">
                     <div class="card-body">
-                        <a href="/high-fidelity-prototype/tools.html" class="btn btn-primary w-75">View Manuals</a>
+                        <a href="/DMs/${DM.dmID}/rules" class="btn btn-primary w-75">View Manuals</a>
                     </div>
                 </div>
             </div>

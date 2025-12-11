@@ -75,7 +75,7 @@
             </div>
         </div>
         <div class="fs-4 link py-3">
-            <a href="playerfeedback.html" class="fs-4 link mx">View player feedback<br></a>
+            <a href="/DMs/${DM.dmID}/reviews" class="fs-4 link mx">View player feedback<br></a>
         </div>
         <a href="/DMs/${DM.dmID}/delete" class="btn btn-danger">Delete account</a>
     </div>
